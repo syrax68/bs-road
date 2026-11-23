@@ -28,6 +28,9 @@ jobs:
       - name: Code généré à jour (Drift)
         run: |
           dart run build_runner build --delete-conflicting-outputs
+          # Le générateur écrit sur 80 colonnes, le projet est à 120
+          # (analysis_options.yaml) : on reformate avant de comparer.
+          dart format lib
           git diff --exit-code -- lib
       - name: Format
         run: dart format --output=none --set-exit-if-changed lib test tool

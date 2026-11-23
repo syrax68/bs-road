@@ -1,6 +1,9 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:bs_road/core/geo/geo.dart';
+import 'package:bs_road/core/location/location_service.dart';
 import 'package:bs_road/data/catalog/catalog_bootstrap.dart';
 import 'package:bs_road/data/db/app_database.dart';
 import 'package:drift/drift.dart';
@@ -91,4 +94,44 @@ Future<void> settle(WidgetTester tester) async {
 Future<void> finish(WidgetTester tester) async {
   await tester.pumpWidget(const SizedBox.shrink());
   await settle(tester);
+}
+
+/// GPS factice : autorisation et positions pilotées par le test.
+class FakeLocationService implements LocationService {
+  FakeLocationService({this.status = LocationAvailability.unknown, this.afterRequest = LocationAvailability.granted});
+
+  LocationAvailability status;
+
+  /// Ce que répond la fenêtre d'autorisation.
+  LocationAvailability afterRequest;
+  final _positions = StreamController<GeoPoint>.broadcast();
+  GeoPoint? last;
+  int requests = 0;
+
+  void emit(GeoPoint p) {
+    last = p;
+    _positions.add(p);
+  }
+
+  @override
+  Future<LocationAvailability> availability() async => status;
+
+  @override
+  Future<LocationAvailability> request() async {
+    requests++;
+    return status = afterRequest;
+  }
+
+  @override
+  Stream<GeoPoint> positions() async* {
+    if (last != null) yield last!;
+    yield* _positions.stream;
+  }
+}
+
+/// Dossiers de cartes jetables, pour ne pas toucher au vrai stockage.
+({Directory work, Directory downloaded}) tempMapDirectories() {
+  final root = Directory.systemTemp.createTempSync('bs_road_maps_');
+  addTearDown(() => root.deleteSync(recursive: true));
+  return (work: Directory('${root.path}/embedded'), downloaded: Directory('${root.path}/packs'));
 }

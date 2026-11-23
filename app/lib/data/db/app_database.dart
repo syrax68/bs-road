@@ -1,3 +1,4 @@
+import 'package:bs_road/data/db/app_database.steps.dart';
 import 'package:bs_road/data/db/tables.dart';
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
@@ -22,6 +23,7 @@ part 'app_database.g.dart';
     TransitStops,
     Alerts,
     PlaceStates,
+    Settings,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -31,10 +33,16 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.open() : super(driftDatabase(name: 'bs_road'));
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
   @override
-  MigrationStrategy get migration => MigrationStrategy(onCreate: (m) => m.createAll());
+  MigrationStrategy get migration => MigrationStrategy(
+    onCreate: (m) => m.createAll(),
+    onUpgrade: stepByStep(
+      // v2 : réglages (point de départ, hypothèses de marge).
+      from1To2: (m, schema) => m.createTable(schema.settings),
+    ),
+  );
 
   /// Tables vidées et réécrites à chaque import du catalogue.
   List<TableInfo<Table, Object?>> get catalogTables => [

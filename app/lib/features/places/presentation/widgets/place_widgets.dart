@@ -1,50 +1,33 @@
 import 'package:bs_road/app/theme.dart';
-import 'package:bs_road/features/places/domain/place.dart';
+import 'package:bs_road/core/catalog/place.dart';
+import 'package:bs_road/core/ui/zh_text.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// Police à empattement pour le chinois : donne au nom de l'enseigne
-/// l'allure d'une plaque. Les polices CJK du système suffisent
-/// (Noto CJK sur Android, PingFang ou Songti sur iPhone).
-/// Langue des noms d'enseignes et des adresses.
-const zhLocale = Locale('zh', 'CN');
+export 'package:bs_road/core/ui/bs_ui.dart';
+export 'package:bs_road/core/ui/zh_text.dart';
 
-const zhFontFallback = ['Noto Serif SC', 'Noto Serif CJK SC', 'Songti SC', 'serif'];
-
-TextStyle zhStyle(double size, {Color? color, FontWeight weight = FontWeight.w900}) => TextStyle(
-  fontSize: size,
-  fontWeight: weight,
-  height: 1.2,
-  color: color,
-  fontFamilyFallback: zhFontFallback,
-  // Chinois simplifié : sans cette indication, un téléphone réglé en français
-  // peut dessiner les caractères avec leurs variantes japonaises.
-  locale: zhLocale,
-);
-
-/// Petite étiquette en capitales (« Nouveau », « À visiter »…).
+/// Petite étiquette (« Nouveau », « À visiter »…) : fond doux, texte coloré.
 class Tag extends StatelessWidget {
-  const Tag(this.label, {required this.color, this.filled = false, super.key});
+  const Tag(this.label, {required this.color, required this.background, this.icon, super.key});
 
   final String label;
   final Color color;
-  final bool filled;
+  final Color background;
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-    decoration: BoxDecoration(
-      color: filled ? color : null,
-      border: filled ? null : Border.all(color: color, width: 1.5),
-      borderRadius: BorderRadius.circular(4),
-    ),
-    child: Text(
-      label.toUpperCase(),
-      style: TextStyle(
-        fontSize: 11,
-        fontWeight: FontWeight.w700,
-        letterSpacing: 0.6,
-        color: filled ? Theme.of(context).colorScheme.onPrimary : color,
-      ),
+    padding: EdgeInsets.fromLTRB(icon == null ? 7 : 5, 3, 7, 3),
+    decoration: BoxDecoration(color: background, borderRadius: BorderRadius.circular(6)),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (icon != null) ...[Icon(icon, size: 12, color: color), const SizedBox(width: 3)],
+        Text(
+          label,
+          style: TextStyle(fontSize: 11.5, fontWeight: FontWeight.w700, color: color, height: 1.2),
+        ),
+      ],
     ),
   );
 }
@@ -54,21 +37,34 @@ List<Widget> placeTags(BuildContext context, Place place, DateTime now) {
   final bs = context.bs;
   final alert = place.alert;
   return [
-    if (alert != null)
-      Tag(switch (alert.type) {
-        AlertType.closed => 'Fermé ?',
-        AlertType.verify => 'À revérifier',
-        AlertType.info => 'Du nouveau',
-      }, color: alert.type == AlertType.info ? bs.visited : bs.warning),
-    if (place.isNew(now)) Tag('Nouveau', color: bs.visited),
+    if (alert != null && alert.type == AlertType.info)
+      Tag('Du nouveau', color: bs.visited, background: bs.visitedSoft)
+    else if (alert != null)
+      Tag(
+        alert.type == AlertType.closed ? 'Fermé ?' : 'À revérifier',
+        color: bs.warning,
+        background: bs.warningSoft,
+        icon: Icons.warning_amber_rounded,
+      ),
+    if (place.isNew(now)) Tag('Nouveau', color: bs.visited, background: bs.visitedSoft),
   ];
 }
 
 /// Statut de visite, tel qu'affiché dans la liste.
 Widget? statusTag(BuildContext context, PlaceStatus status) => switch (status) {
   PlaceStatus.undecided => null,
-  PlaceStatus.toVisit => Tag('À visiter', color: Theme.of(context).colorScheme.primary, filled: true),
-  PlaceStatus.visited => Tag('Visité', color: context.bs.visited),
+  PlaceStatus.toVisit => Tag(
+    'À visiter',
+    color: Theme.of(context).colorScheme.primary,
+    background: context.bs.accentSoft,
+    icon: Icons.flag_rounded,
+  ),
+  PlaceStatus.visited => Tag(
+    'Visité',
+    color: context.bs.visited,
+    background: context.bs.visitedSoft,
+    icon: Icons.check_rounded,
+  ),
 };
 
 /// Numéro de ligne de métro ou de bus.
@@ -81,18 +77,22 @@ class LineChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final bs = context.bs;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      constraints: const BoxConstraints(minWidth: 26),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
       decoration: BoxDecoration(
-        color: metro ? scheme.primary : scheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(4),
+        color: metro ? scheme.onSurface : bs.sunken,
+        borderRadius: BorderRadius.circular(metro ? 6 : 5),
       ),
       child: Text(
         metro ? 'L$line' : line,
+        textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 12.5,
-          fontWeight: FontWeight.w700,
-          color: metro ? scheme.onPrimary : scheme.onSurface,
+          fontWeight: FontWeight.w800,
+          height: 1.1,
+          color: metro ? scheme.surface : scheme.onSurface,
           fontFamilyFallback: zhFontFallback,
         ),
       ),

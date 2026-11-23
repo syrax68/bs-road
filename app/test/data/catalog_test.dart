@@ -1,8 +1,8 @@
+import 'package:bs_road/core/catalog/place.dart';
 import 'package:bs_road/data/catalog/catalog_bundle.dart';
 import 'package:bs_road/data/catalog/catalog_importer.dart';
 import 'package:bs_road/data/db/app_database.dart';
-import 'package:bs_road/features/places/data/places_repository.dart';
-import 'package:bs_road/features/places/domain/place.dart';
+import 'package:bs_road/data/places/places_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../helpers.dart';

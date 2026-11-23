@@ -6,6 +6,8 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>BS Road calcule la distance jusqu’aux marchés et les trie du plus proche au plus loin. Ta position reste sur le téléphone.</string>
 	<key>CFBundleDisplayName</key>
 	<string>BS Road</string>
 	<key>LSApplicationQueriesSchemes</key>
