@@ -52,94 +52,145 @@ class _PlaceDetail extends ConsumerWidget {
     final labels = ref.watch(categoryLabelsProvider);
     final repo = ref.read(placeStatesRepositoryProvider);
     final scheme = Theme.of(context).colorScheme;
+    final bs = context.bs;
     final added = place.added;
+    final tags = placeTags(context, place, DateTime.now());
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(place.name),
         actions: [
+          IconButton(
+            tooltip: 'Voir sur la carte',
+            icon: const Icon(Icons.map_outlined),
+            onPressed: () => context.go('/carte?lieu=${place.id}'),
+          ),
           IconButton(
             tooltip: state.favorite ? 'Retirer des favoris' : 'Ajouter aux favoris',
             isSelected: state.favorite,
-            icon: const Icon(Icons.star_border),
-            selectedIcon: Icon(Icons.star, color: scheme.primary),
+            icon: const Icon(Icons.star_outline_rounded),
+            selectedIcon: Icon(Icons.star_rounded, color: scheme.primary),
             onPressed: () => repo.setFavorite(place.id, favorite: !state.favorite),
           ),
+          const SizedBox(width: 4),
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Overline(place.area),
+                const SizedBox(height: 4),
+                Text(place.name, style: Theme.of(context).textTheme.headlineMedium),
+                if (place.alt != null) Text(place.alt!, style: TextStyle(fontSize: 15, color: scheme.onSurfaceVariant)),
+                const SizedBox(height: 10),
+                Wrap(
+                  spacing: 6,
+                  runSpacing: 6,
+                  children: [
+                    for (final c in place.categoryIds)
+                      Tag(labels[c] ?? c, color: scheme.onSurface, background: bs.sunken),
+                    ...tags,
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 18),
           _Plaque(place: place),
           if (place.alert != null) ...[const SizedBox(height: 12), _AlertBox(alert: place.alert!)],
-          const SizedBox(height: 16),
-          Text(
-            place.name.toUpperCase(),
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800, letterSpacing: 0.5),
-          ),
-          const SizedBox(height: 2),
-          Text(
-            [
-              place.area,
-              place.categoryIds.map((c) => labels[c] ?? c).join(', '),
-              if (added != null) 'ajouté le ${DateFormat.yMMMMd('fr').format(added)}',
-            ].join(' · '),
-            style: TextStyle(color: scheme.onSurfaceVariant),
-          ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
+          StatusPicker(selected: state.status, onChanged: (s) => repo.setStatus(place.id, s)),
+          const SizedBox(height: 12),
           _DistanceRow(place: place),
-          const SizedBox(height: 8),
-          SegmentedButton<PlaceStatus>(
-            showSelectedIcon: false,
-            segments: const [
-              ButtonSegment(value: PlaceStatus.undecided, label: Text('Pas décidé')),
-              ButtonSegment(value: PlaceStatus.toVisit, label: Text('À visiter')),
-              ButtonSegment(value: PlaceStatus.visited, label: Text('Visité')),
-            ],
-            selected: {state.status},
-            onSelectionChanged: (s) => repo.setStatus(place.id, s.first),
+          BsSection(
+            title: 'Y aller en bus ou en métro',
+            child: _TransitCard(place: place),
           ),
-          const SizedBox(height: 20),
-          const _Heading('Y aller en bus ou en métro'),
-          _TransitCard(place: place),
-          const SizedBox(height: 20),
-          const _Heading('Ce qu’on y trouve'),
-          Text(place.sells),
-          const SizedBox(height: 16),
-          _InfoRow(label: 'Horaires', value: place.hours),
-          _InfoRow(label: 'Minimum de commande', value: place.moq),
-          _InfoRow(label: 'Adresse', value: place.address),
-          if (place.tips.isNotEmpty) ...[
-            const SizedBox(height: 12),
-            const _Heading('Conseils'),
-            for (final t in place.tips)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          BsSection(
+            title: 'Ce qu’on y trouve',
+            child: BsCard(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(place.sells, style: const TextStyle(fontSize: 15, height: 1.4)),
+                  const SizedBox(height: 14),
+                  const Divider(),
+                  const SizedBox(height: 14),
+                  _InfoRow(icon: Icons.schedule_rounded, label: 'Horaires', value: place.hours),
+                  _InfoRow(icon: Icons.inventory_2_outlined, label: 'Minimum de commande', value: place.moq),
+                  _InfoRow(icon: Icons.place_outlined, label: 'Adresse', value: place.address, last: true),
+                ],
+              ),
+            ),
+          ),
+          if (place.tips.isNotEmpty)
+            BsSection(
+              title: 'Conseils',
+              child: BsCard(
+                child: Column(
                   children: [
-                    const Padding(padding: EdgeInsets.only(top: 2, right: 8), child: Text('•')),
-                    Expanded(child: Text(t)),
+                    for (final (i, t) in place.tips.indexed)
+                      Padding(
+                        padding: EdgeInsets.only(bottom: i == place.tips.length - 1 ? 0 : 12),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: 22,
+                              height: 22,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(color: bs.accentSoft, shape: BoxShape.circle),
+                              child: Text(
+                                '${i + 1}',
+                                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800, color: scheme.primary),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(child: Text(t, style: const TextStyle(height: 1.4))),
+                          ],
+                        ),
+                      ),
                   ],
                 ),
               ),
-          ],
-          const SizedBox(height: 12),
-          const _Heading('Ma note'),
-          _NoteField(placeId: place.id, initial: state.note),
-          if (place.sources.isNotEmpty) ...[
-            const SizedBox(height: 20),
-            const _Heading('Sources'),
-            for (final s in place.sources)
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextButton(
-                  style: TextButton.styleFrom(padding: EdgeInsets.zero, alignment: Alignment.centerLeft),
-                  onPressed: () => openExternal(context, Uri.parse(s.url)),
-                  child: Text(s.title, textAlign: TextAlign.left),
+            ),
+          BsSection(
+            title: 'Ma note',
+            child: _NoteField(placeId: place.id, initial: state.note),
+          ),
+          if (place.sources.isNotEmpty)
+            BsSection(
+              title: 'Sources',
+              child: BsCard(
+                padding: EdgeInsets.zero,
+                child: Column(
+                  children: [
+                    for (final (i, s) in place.sources.indexed) ...[
+                      if (i > 0) const Divider(indent: 16),
+                      ListTile(
+                        dense: true,
+                        title: Text(s.title, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                        trailing: const Icon(Icons.open_in_new_rounded, size: 18),
+                        onTap: () => openExternal(context, Uri.parse(s.url)),
+                      ),
+                    ],
+                  ],
                 ),
               ),
-          ],
+            ),
+          if (added != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Text(
+                'Ajouté au carnet le ${DateFormat.yMMMMd('fr').format(added)}',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant),
+              ),
+            ),
         ],
       ),
       bottomNavigationBar: _ActionBar(place: place),
@@ -156,35 +207,44 @@ class _Plaque extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bs = context.bs;
+    final faded = bs.plaqueInk.withValues(alpha: 0.6);
     return Material(
       color: bs.plaque,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(22),
+      clipBehavior: Clip.antiAlias,
       child: InkWell(
-        borderRadius: BorderRadius.circular(16),
         onTap: () => context.push('/lieu/${place.id}/chauffeur'),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(18, 14, 18, 18),
+          padding: const EdgeInsets.fromLTRB(20, 18, 20, 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'À MONTRER AU CHAUFFEUR · TOUCHER POUR AGRANDIR',
-                style: TextStyle(
-                  fontSize: 11.5,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.8,
-                  color: bs.plaqueInk.withValues(alpha: 0.7),
-                ),
+              Row(
+                children: [
+                  Expanded(child: Overline('À montrer au chauffeur', color: faded)),
+                  const Seal('去', size: 30, zh: true),
+                ],
               ),
-              const SizedBox(height: 6),
-              Text(place.zh, style: zhStyle(34, color: bs.plaqueInk)),
+              const SizedBox(height: 10),
+              Text(place.zh, style: zhStyle(36, color: bs.plaqueInk)),
               if (place.addressZh != null) ...[
-                const SizedBox(height: 6),
+                const SizedBox(height: 8),
                 Text(
                   place.addressZh!,
-                  style: zhStyle(17, color: bs.plaqueInk, weight: FontWeight.w600),
+                  style: zhStyle(17, color: bs.plaqueInk.withValues(alpha: 0.9), weight: FontWeight.w600),
                 ),
               ],
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Icon(Icons.open_in_full_rounded, size: 15, color: faded),
+                  const SizedBox(width: 6),
+                  Text(
+                    'Toucher pour agrandir',
+                    style: TextStyle(fontSize: 12.5, fontWeight: FontWeight.w600, color: faded),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -200,36 +260,111 @@ class _AlertBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = alert.type == AlertType.info ? context.bs.visited : context.bs.warning;
+    final info = alert.type == AlertType.info;
+    final color = info ? context.bs.visited : context.bs.warning;
+    final bg = info ? context.bs.visitedSoft : context.bs.warningSoft;
     final title = switch (alert.type) {
       AlertType.closed => 'Signalé comme fermé ou déménagé',
       AlertType.verify => 'À revérifier',
       AlertType.info => 'Du nouveau',
     };
     return Container(
-      padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerLow,
-        border: Border(left: BorderSide(color: color, width: 4)),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Column(
+      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+      decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(BsRadius.card)),
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            '${title.toUpperCase()} · ${DateFormat.yMMMMd('fr').format(alert.date)}',
-            style: TextStyle(fontWeight: FontWeight.w700, color: color, fontSize: 13),
-          ),
-          const SizedBox(height: 4),
-          Text(alert.text),
-          if (alert.source != null)
-            TextButton(
-              style: TextButton.styleFrom(padding: EdgeInsets.zero),
-              onPressed: () => openExternal(context, Uri.parse(alert.source!.url)),
-              child: Text(alert.source!.title),
+          Icon(info ? Icons.info_outline_rounded : Icons.warning_amber_rounded, color: color, size: 22),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(fontWeight: FontWeight.w800, color: color, fontSize: 14.5),
+                ),
+                Text(
+                  DateFormat.yMMMMd('fr').format(alert.date),
+                  style: TextStyle(fontSize: 12.5, color: color.withValues(alpha: 0.8)),
+                ),
+                const SizedBox(height: 6),
+                Text(alert.text, style: const TextStyle(height: 1.4)),
+                if (alert.source != null)
+                  TextButton(
+                    style: TextButton.styleFrom(padding: EdgeInsets.zero, foregroundColor: color),
+                    onPressed: () => openExternal(context, Uri.parse(alert.source!.url)),
+                    child: Text(alert.source!.title),
+                  ),
+              ],
             ),
+          ),
         ],
       ),
+    );
+  }
+}
+
+/// Choix du statut de visite : trois boutons côte à côte.
+class StatusPicker extends StatelessWidget {
+  const StatusPicker({required this.selected, required this.onChanged, super.key});
+
+  final PlaceStatus selected;
+  final ValueChanged<PlaceStatus> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final bs = context.bs;
+    final options = [
+      (PlaceStatus.undecided, 'Pas décidé', Icons.radio_button_unchecked_rounded, scheme.onSurface, bs.sunken),
+      (PlaceStatus.toVisit, 'À visiter', Icons.flag_rounded, scheme.primary, bs.accentSoft),
+      (PlaceStatus.visited, 'Visité', Icons.check_circle_rounded, bs.visited, bs.visitedSoft),
+    ];
+    return Row(
+      children: [
+        for (final (i, (status, label, icon, color, soft)) in options.indexed) ...[
+          if (i > 0) const SizedBox(width: 8),
+          Expanded(
+            child: Semantics(
+              button: true,
+              selected: status == selected,
+              child: Material(
+                color: status == selected ? soft : bs.card,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(BsRadius.control),
+                  side: BorderSide(
+                    color: status == selected ? color : bs.hairline,
+                    width: status == selected ? 1.5 : 1,
+                  ),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: InkWell(
+                  onTap: () => onChanged(status),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    child: Column(
+                      children: [
+                        Icon(icon, size: 22, color: status == selected ? color : scheme.onSurfaceVariant),
+                        const SizedBox(height: 4),
+                        Text(
+                          label,
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: status == selected ? FontWeight.w800 : FontWeight.w600,
+                            color: status == selected ? color : scheme.onSurface,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ],
     );
   }
 }
@@ -243,29 +378,39 @@ class _TransitCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final stops = [?place.metro, ...place.buses];
     final scheme = Theme.of(context).colorScheme;
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (stops.isEmpty)
-              Text(
-                'Aucun arrêt relevé à proximité. Utilise le bouton Amap.',
-                style: TextStyle(color: scheme.onSurfaceVariant),
-              ),
-            for (final s in stops) _StopRow(stop: s),
-            if (stops.isNotEmpty) const Divider(height: 20),
-            Text(place.access),
-            const SizedBox(height: 8),
+    return BsCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (stops.isEmpty)
             Text(
-              place.isApprox
-                  ? 'Position approximative : ${place.approxNote}.'
-                  : 'Distances à vol d’oiseau. Les lignes changent : vérifie le trajet dans Amap.',
-              style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant),
+              'Aucun arrêt relevé à proximité. Utilise le bouton Amap.',
+              style: TextStyle(color: scheme.onSurfaceVariant),
             ),
+          for (final (i, s) in stops.indexed) ...[
+            if (i > 0) const Padding(padding: EdgeInsets.symmetric(vertical: 12), child: Divider(indent: 48)),
+            _StopRow(stop: s),
           ],
-        ),
+          if (stops.isNotEmpty) const SizedBox(height: 16),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(color: context.bs.sunken, borderRadius: BorderRadius.circular(12)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(place.access, style: const TextStyle(height: 1.4)),
+                const SizedBox(height: 6),
+                Text(
+                  place.isApprox
+                      ? 'Position approximative : ${place.approxNote}.'
+                      : 'Distances à vol d’oiseau. Les lignes changent : vérifie le trajet dans Amap.',
+                  style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -283,82 +428,96 @@ class _StopRow extends StatelessWidget {
     const maxLines = 10;
     final shown = stop.lines.take(maxLines).toList();
     final more = stop.lines.length - shown.length;
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 44,
-            child: Text(metro ? 'Métro' : 'Bus', style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 12.5)),
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(stop.zh, style: zhStyle(18, weight: FontWeight.w700)),
-                Text(
-                  [stop.en, if (stop.exit != null) 'sortie ${stop.exit}'].join(' · '),
-                  style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant),
-                ),
-                if (shown.isNotEmpty) ...[
-                  const SizedBox(height: 6),
-                  Wrap(
-                    spacing: 4,
-                    runSpacing: 4,
-                    children: [
-                      for (final l in shown) LineChip(l, metro: metro),
-                      if (more > 0) Text('+$more ligne${more > 1 ? 's' : ''}', style: const TextStyle(fontSize: 12.5)),
-                    ],
-                  ),
-                ],
-              ],
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Semantics(
+          label: metro ? 'Métro' : 'Bus',
+          child: Container(
+            width: 36,
+            height: 36,
+            decoration: BoxDecoration(
+              color: metro ? scheme.onSurface : context.bs.sunken,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Icon(
+              metro ? Icons.subway_rounded : Icons.directions_bus_rounded,
+              size: 20,
+              color: metro ? scheme.surface : scheme.onSurface,
             ),
           ),
-          Text(formatDistance(stop.distanceM.toDouble()), style: TextStyle(color: scheme.onSurfaceVariant)),
-        ],
-      ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(stop.zh, style: zhStyle(19, weight: FontWeight.w700)),
+              Text(
+                [stop.en, if (stop.exit != null) 'sortie ${stop.exit}'].join(' · '),
+                style: TextStyle(fontSize: 13, color: scheme.onSurfaceVariant),
+              ),
+              if (shown.isNotEmpty) ...[
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 4,
+                  runSpacing: 4,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    for (final l in shown) LineChip(l, metro: metro),
+                    if (more > 0)
+                      Text(
+                        '+$more ligne${more > 1 ? 's' : ''}',
+                        style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant),
+                      ),
+                  ],
+                ),
+              ],
+            ],
+          ),
+        ),
+        const SizedBox(width: 8),
+        Text(
+          formatDistance(stop.distanceM.toDouble()),
+          style: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w700),
+        ),
+      ],
     );
   }
 }
 
-class _Heading extends StatelessWidget {
-  const _Heading(this.text);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.only(bottom: 8),
-    child: Text(
-      text.toUpperCase(),
-      style: TextStyle(
-        fontSize: 13,
-        fontWeight: FontWeight.w700,
-        letterSpacing: 0.8,
-        color: Theme.of(context).colorScheme.onSurfaceVariant,
-      ),
-    ),
-  );
-}
-
 class _InfoRow extends StatelessWidget {
-  const _InfoRow({required this.label, required this.value});
+  const _InfoRow({required this.icon, required this.label, required this.value, this.last = false});
 
+  final IconData icon;
   final String label;
   final String value;
+  final bool last;
 
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.only(bottom: 10),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(label, style: const TextStyle(fontWeight: FontWeight.w600)),
-        Text(value),
-      ],
-    ),
-  );
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Padding(
+      padding: EdgeInsets.only(bottom: last ? 0 : 14),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, size: 20, color: scheme.onSurfaceVariant),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(label, style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant)),
+                const SizedBox(height: 1),
+                Text(value, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600, height: 1.35)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 /// Note libre, enregistrée une demi-seconde après la dernière frappe.
@@ -408,13 +567,12 @@ class _NoteFieldState extends ConsumerState<_NoteField> {
     minLines: 2,
     maxLines: 6,
     textCapitalization: TextCapitalization.sentences,
-    decoration: const InputDecoration(hintText: 'Prix vus, contacts, impressions…', border: OutlineInputBorder()),
+    decoration: const InputDecoration(hintText: 'Prix vus, contacts, impressions…'),
     onChanged: _changed,
   );
 }
 
-/// Barre fixe du bas : itinéraire Amap et copie du nom chinois.
-/// Distance depuis le point de départ, et accès à la carte.
+/// Distance depuis le point de départ ; un appui change le point.
 class _DistanceRow extends ConsumerWidget {
   const _DistanceRow({required this.place});
 
@@ -425,33 +583,46 @@ class _DistanceRow extends ConsumerWidget {
     final origin = ref.watch(originProvider);
     final d = origin == null ? null : distanceMeters(origin.point, place.location);
     final scheme = Theme.of(context).colorScheme;
-    return Row(
-      children: [
-        Expanded(
-          child: TextButton.icon(
-            style: TextButton.styleFrom(padding: EdgeInsets.zero, alignment: Alignment.centerLeft),
-            icon: const Icon(Icons.straighten, size: 18),
-            onPressed: () => showOriginSheet(context),
-            label: Text(
-              d == null
-                  ? 'Indique d’où tu pars pour voir la distance'
-                  : d < 30
-                  ? 'Tu es sur place.'
-                  : 'À ${formatDistance(d)} de ${origin!.label}',
-              style: TextStyle(color: d == null ? scheme.onSurfaceVariant : null),
-            ),
+    return BsCard(
+      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+      onTap: () => showOriginSheet(context),
+      child: Row(
+        children: [
+          Container(
+            width: 36,
+            height: 36,
+            decoration: BoxDecoration(color: context.bs.sunken, borderRadius: BorderRadius.circular(10)),
+            child: Icon(Icons.near_me_rounded, size: 18, color: scheme.onSurface),
           ),
-        ),
-        IconButton(
-          tooltip: 'Voir sur la carte',
-          icon: const Icon(Icons.map_outlined),
-          onPressed: () => context.go('/carte?lieu=${place.id}'),
-        ),
-      ],
+          const SizedBox(width: 12),
+          Expanded(
+            child: d == null
+                ? Text(
+                    'Indique d’où tu pars pour voir la distance',
+                    style: TextStyle(fontSize: 14, color: scheme.onSurfaceVariant),
+                  )
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        d < 30 ? 'Tu es sur place.' : formatDistance(d),
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                      ),
+                      Text(
+                        'depuis ${origin!.label}, à vol d’oiseau',
+                        style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant),
+                      ),
+                    ],
+                  ),
+          ),
+          Icon(Icons.chevron_right_rounded, color: scheme.onSurfaceVariant),
+        ],
+      ),
     );
   }
 }
 
+/// Barre fixe du bas : itinéraire Amap et copie du nom chinois.
 class _ActionBar extends ConsumerWidget {
   const _ActionBar({required this.place});
 
@@ -466,31 +637,36 @@ class _ActionBar extends ConsumerWidget {
     final uri = place.isApprox
         ? AmapLinks.search(place.amapQuery)
         : AmapLinks.transitRoute(to: place.location, toName: place.zh, from: from?.point, fromName: from?.label);
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-        child: Row(
-          children: [
-            Expanded(
-              child: FilledButton.icon(
-                style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(50)),
-                icon: const Icon(Icons.directions_transit),
-                label: Text(place.isApprox ? 'Chercher dans Amap' : 'Itinéraire dans Amap'),
-                onPressed: () => openExternal(context, uri),
+    final bs = context.bs;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: bs.card,
+        border: Border(top: BorderSide(color: bs.hairline)),
+      ),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+          child: Row(
+            children: [
+              Expanded(
+                child: FilledButton.icon(
+                  icon: const Icon(Icons.directions_transit_rounded),
+                  label: Text(place.isApprox ? 'Chercher dans Amap' : 'Itinéraire dans Amap'),
+                  onPressed: () => openExternal(context, uri),
+                ),
               ),
-            ),
-            const SizedBox(width: 8),
-            OutlinedButton.icon(
-              style: OutlinedButton.styleFrom(minimumSize: const Size(0, 50)),
-              icon: const Icon(Icons.copy, size: 18),
-              label: const Text('中文'),
-              onPressed: () async {
-                final messenger = ScaffoldMessenger.of(context);
-                await Clipboard.setData(ClipboardData(text: [place.zh, ?place.addressZh].join('\n')));
-                messenger.showSnackBar(const SnackBar(content: Text('Nom et adresse chinois copiés.')));
-              },
-            ),
-          ],
+              const SizedBox(width: 8),
+              OutlinedButton.icon(
+                icon: const Icon(Icons.copy_rounded, size: 18),
+                label: const Text('中文'),
+                onPressed: () async {
+                  final messenger = ScaffoldMessenger.of(context);
+                  await Clipboard.setData(ClipboardData(text: [place.zh, ?place.addressZh].join('\n')));
+                  messenger.showSnackBar(const SnackBar(content: Text('Nom et adresse chinois copiés.')));
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

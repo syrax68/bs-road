@@ -9,6 +9,7 @@ import 'package:bs_road/data/db/app_database.dart';
 import 'package:bs_road/data/maps/map_providers.dart';
 import 'package:bs_road/data/settings/origin_providers.dart';
 import 'package:bs_road/data/settings/settings_repository.dart';
+import 'package:bs_road/features/places/presentation/place_detail_screen.dart';
 import 'package:bs_road/features/places/presentation/places_list_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -74,7 +75,7 @@ void main() {
 
   testWidgets('fiche : plaque chinoise, transports, statut enregistré', (tester) async {
     await startApp(tester);
-    await tester.enterText(find.byType(SearchBar), '摩配');
+    await tester.enterText(find.byType(TextField), '摩配');
     await settle(tester);
     await tester.tap(find.text('新白云摩配市场'));
     await settle(tester);
@@ -87,8 +88,7 @@ void main() {
     await settle(tester);
     // Le bouton ne passe à « À visiter » qu'après l'aller-retour par la base :
     // l'écran affiche ce que la base contient, pas l'état local du bouton.
-    final segmented = tester.widget<SegmentedButton<PlaceStatus>>(find.byType(SegmentedButton<PlaceStatus>));
-    expect(segmented.selected, {PlaceStatus.toVisit});
+    expect(tester.widget<StatusPicker>(find.byType(StatusPicker)).selected, PlaceStatus.toVisit);
     await finish(tester);
   });
 
@@ -147,7 +147,7 @@ void main() {
 
     await tester.tap(find.text('Lieux'));
     await settle(tester);
-    await tester.enterText(find.byType(SearchBar), 'Onelink');
+    await tester.enterText(find.byType(TextField), 'Onelink');
     await settle(tester);
     await tester.tap(find.text('万菱广场'));
     await settle(tester);
@@ -158,7 +158,7 @@ void main() {
     expect(find.bySemanticsLabel('Onelink Plaza'), findsOneWidget);
     await tester.tap(find.text('万菱广场'));
     await settle(tester);
-    expect(find.text('ONELINK PLAZA'), findsOneWidget);
+    expect(find.text('Onelink Plaza'), findsOneWidget);
     await finish(tester);
   });
 }

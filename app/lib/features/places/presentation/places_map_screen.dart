@@ -178,28 +178,10 @@ class _PlacesMapScreenState extends ConsumerState<PlacesMapScreen> {
 
     ref.listen(placesProvider, (_, _) => _focusRequested());
 
+    final topInset = MediaQuery.paddingOf(context).top;
+    final bannerTop = topInset + 72;
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Carte'),
-        actions: [
-          IconButton(
-            tooltip: 'Tous les lieux affichés',
-            icon: const Icon(Icons.fit_screen_outlined),
-            onPressed: () => _fitAll(places),
-          ),
-          PopupMenuButton<String>(
-            onSelected: (v) => switch (v) {
-              'depart' => showOriginSheet(context),
-              'essai' => context.push('/essai-carte'),
-              _ => null,
-            },
-            itemBuilder: (_) => const [
-              PopupMenuItem(value: 'depart', child: Text('Point de départ…')),
-              PopupMenuItem(value: 'essai', child: Text('Essai des lecteurs de carte')),
-            ],
-          ),
-        ],
-      ),
       body: Stack(
         children: [
           FlutterMap(
@@ -270,11 +252,26 @@ class _PlacesMapScreenState extends ConsumerState<PlacesMapScreen> {
               const _Attribution(),
             ],
           ),
+          Positioned(
+            top: topInset + 10,
+            left: 12,
+            right: 12,
+            child: _TopBar(
+              count: places.length,
+              onFit: () => _fitAll(places),
+              onMenu: (v) => switch (v) {
+                'depart' => showOriginSheet(context),
+                'essai' => context.push('/essai-carte'),
+                _ => null,
+              },
+            ),
+          ),
           if (offline case AsyncData(value: null))
-            const _Banner(text: 'Carte absente de cette version de l’app. Les repères restent utilisables.'),
-          if (offline case AsyncError(:final error)) _Banner(text: 'Carte illisible : $error'),
+            _Banner(top: bannerTop, text: 'Carte absente de cette version de l’app. Les repères restent utilisables.'),
+          if (offline case AsyncError(:final error)) _Banner(top: bannerTop, text: 'Carte illisible : $error'),
           if (_placing != null)
             _Banner(
+              top: bannerTop,
               text: _placing == _Placing.hotel
                   ? 'Touche la carte à l’endroit de ton hôtel. Zoome d’abord pour être précis.'
                   : 'Touche la carte à l’endroit où tu te trouves. Zoome d’abord pour être précis.',
@@ -285,18 +282,19 @@ class _PlacesMapScreenState extends ConsumerState<PlacesMapScreen> {
             )
           else if (view != null && view.shown != view.total)
             _Banner(
+              top: bannerTop,
               text: '${view.shown} lieux sur ${view.total} : filtres de la liste appliqués.',
               actionLabel: 'Tout afficher',
               onAction: () => ref.read(placeFilterProvider.notifier).reset(),
             ),
           Positioned(
             right: 16,
-            bottom: selected == null ? 24 : 168,
+            bottom: selected == null ? 24 : 176,
             child: FloatingActionButton(
               heroTag: 'gps',
               tooltip: 'Ma position',
               onPressed: _locateMe,
-              child: const Icon(Icons.my_location),
+              child: const Icon(Icons.my_location_rounded),
             ),
           ),
           if (selected != null)
@@ -381,8 +379,9 @@ class _PlacePin extends StatelessWidget {
       PlaceStatus.visited => context.bs.visited,
       PlaceStatus.undecided => scheme.onSurface,
     };
-    // Position approximative : pastille creuse, comme dans le prototype.
+    // Position approximative : pastille creuse.
     final approx = place.isApprox;
+    final size = selected ? 28.0 : 20.0;
     return Semantics(
       button: true,
       label: '${place.name}${approx ? ', position approximative' : ''}',
@@ -390,16 +389,17 @@ class _PlacePin extends StatelessWidget {
         onTap: onTap,
         child: Center(
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 150),
-            width: selected ? 26 : 20,
-            height: selected ? 26 : 20,
+            duration: const Duration(milliseconds: 160),
+            curve: Curves.easeOutBack,
+            width: size,
+            height: size,
             decoration: BoxDecoration(
-              color: approx ? scheme.surface : color,
+              color: approx ? context.bs.card : color,
               shape: BoxShape.circle,
-              border: Border.all(color: approx ? color : scheme.surface, width: approx ? 3.5 : 2.5),
+              border: Border.all(color: approx ? color : context.bs.card, width: approx ? 4 : 3),
               boxShadow: [
-                const BoxShadow(color: Color(0x73000000), blurRadius: 4, offset: Offset(0, 1)),
-                if (selected) BoxShadow(color: scheme.primary, spreadRadius: 3),
+                const BoxShadow(color: Color(0x40000000), blurRadius: 6, offset: Offset(0, 2)),
+                if (selected) BoxShadow(color: color.withValues(alpha: 0.3), spreadRadius: 6),
               ],
             ),
           ),
@@ -426,18 +426,18 @@ class _ClusterBubble extends StatelessWidget {
         onTap: onTap,
         child: Center(
           child: Container(
-            width: 32,
-            height: 32,
+            width: 34,
+            height: 34,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: scheme.primary,
+              color: scheme.onSurface,
               shape: BoxShape.circle,
-              border: Border.all(color: scheme.surface, width: 2),
-              boxShadow: const [BoxShadow(color: Color(0x73000000), blurRadius: 4, offset: Offset(0, 1))],
+              border: Border.all(color: context.bs.card, width: 3),
+              boxShadow: const [BoxShadow(color: Color(0x40000000), blurRadius: 6, offset: Offset(0, 2))],
             ),
             child: Text(
               '$count',
-              style: TextStyle(color: scheme.onPrimary, fontWeight: FontWeight.w800, fontSize: 15),
+              style: TextStyle(color: scheme.surface, fontWeight: FontWeight.w800, fontSize: 14),
             ),
           ),
         ),
@@ -463,44 +463,127 @@ class _OriginDot extends StatelessWidget {
       decoration: BoxDecoration(
         color: _blue,
         shape: square ? BoxShape.rectangle : BoxShape.circle,
-        borderRadius: square ? BorderRadius.circular(6) : null,
+        borderRadius: square ? BorderRadius.circular(7) : null,
         border: Border.all(color: Colors.white, width: 3),
-        boxShadow: [BoxShadow(color: _blue.withValues(alpha: 0.25), spreadRadius: 6)],
+        boxShadow: [BoxShadow(color: _blue.withValues(alpha: 0.22), spreadRadius: 7)],
       ),
       child: icon == null ? null : Icon(icon, size: 12, color: Colors.white),
     ),
   );
 }
 
-class _Banner extends StatelessWidget {
-  const _Banner({required this.text, this.actionLabel, this.onAction, this.onClose});
+/// Ombre douce des éléments posés sur la carte.
+const _floatShadow = [BoxShadow(color: Color(0x26000000), blurRadius: 16, offset: Offset(0, 4))];
 
+/// Barre flottante en haut de la carte : nombre de lieux et actions.
+class _TopBar extends StatelessWidget {
+  const _TopBar({required this.count, required this.onFit, required this.onMenu});
+
+  final int count;
+  final VoidCallback onFit;
+  final ValueChanged<String> onMenu;
+
+  @override
+  Widget build(BuildContext context) {
+    final bs = context.bs;
+    return Container(
+      constraints: const BoxConstraints(minHeight: 56),
+      padding: const EdgeInsets.fromLTRB(10, 6, 2, 6),
+      decoration: BoxDecoration(
+        color: bs.card,
+        borderRadius: BorderRadius.circular(BsRadius.card),
+        border: Border.all(color: bs.hairline),
+        boxShadow: _floatShadow,
+      ),
+      child: Row(
+        children: [
+          const Seal('路', size: 32, zh: true),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Carte hors ligne',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.w800),
+                ),
+                Text(
+                  '$count lieu${count > 1 ? 'x' : ''} affiché${count > 1 ? 's' : ''}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant),
+                ),
+              ],
+            ),
+          ),
+          IconButton(tooltip: 'Tous les lieux affichés', icon: const Icon(Icons.fit_screen_outlined), onPressed: onFit),
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert_rounded),
+            onSelected: onMenu,
+            itemBuilder: (_) => const [
+              PopupMenuItem(value: 'depart', child: Text('Point de départ…')),
+              PopupMenuItem(value: 'essai', child: Text('Essai des lecteurs de carte')),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Banner extends StatelessWidget {
+  const _Banner({required this.top, required this.text, this.actionLabel, this.onAction, this.onClose});
+
+  final double top;
   final String text;
   final String? actionLabel;
   final VoidCallback? onAction;
   final VoidCallback? onClose;
 
   @override
-  Widget build(BuildContext context) => Positioned(
-    top: 8,
-    left: 12,
-    right: 12,
-    child: Material(
-      elevation: 3,
-      borderRadius: BorderRadius.circular(12),
-      color: Theme.of(context).colorScheme.surfaceContainerHigh,
-      child: Padding(
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Positioned(
+      top: top,
+      left: 12,
+      right: 12,
+      child: Container(
+        decoration: BoxDecoration(
+          color: scheme.onSurface,
+          borderRadius: BorderRadius.circular(BsRadius.control),
+          boxShadow: _floatShadow,
+        ),
         padding: const EdgeInsets.fromLTRB(14, 6, 4, 6),
+        constraints: const BoxConstraints(minHeight: 48),
         child: Row(
           children: [
-            Expanded(child: Text(text, style: const TextStyle(fontSize: 13.5))),
-            if (actionLabel != null) TextButton(onPressed: onAction, child: Text(actionLabel!)),
-            if (onClose != null) IconButton(tooltip: 'Annuler', icon: const Icon(Icons.close), onPressed: onClose),
+            Expanded(
+              child: Text(
+                text,
+                style: TextStyle(fontSize: 13.5, color: scheme.surface, fontWeight: FontWeight.w500),
+              ),
+            ),
+            if (actionLabel != null)
+              TextButton(
+                style: TextButton.styleFrom(foregroundColor: scheme.inversePrimary),
+                onPressed: onAction,
+                child: Text(actionLabel!),
+              ),
+            if (onClose != null)
+              IconButton(
+                tooltip: 'Annuler',
+                color: scheme.surface,
+                icon: const Icon(Icons.close_rounded),
+                onPressed: onClose,
+              ),
           ],
         ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 /// Carte du lieu touché, en bas de l'écran.
@@ -515,38 +598,50 @@ class _SelectedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final bs = context.bs;
     final status = statusTag(context, state?.status ?? PlaceStatus.undecided);
-    return Material(
-      elevation: 6,
-      borderRadius: BorderRadius.circular(16),
-      color: scheme.surface,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: () => context.push('/lieu/${place.id}'),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 8, 12),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(place.zh, style: zhStyle(21)),
-                    Text(place.name, style: const TextStyle(fontWeight: FontWeight.w600)),
-                    const SizedBox(height: 2),
-                    Text(
-                      [
-                        if (distance != null) 'À ${formatDistance(distance!)} de $fromLabel',
-                        if (place.isApprox) 'position approximative',
-                      ].join(' · ').ifEmpty(place.area),
-                      style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant),
-                    ),
-                  ],
+    return DecoratedBox(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(22), boxShadow: _floatShadow),
+      child: Material(
+        color: bs.card,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(22),
+          side: BorderSide(color: bs.hairline),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () => context.push('/lieu/${place.id}'),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(18, 14, 12, 14),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(place.zh, style: zhStyle(22, weight: FontWeight.w800)),
+                      const SizedBox(height: 2),
+                      Text(place.name, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+                      const SizedBox(height: 2),
+                      Text(
+                        [
+                          if (distance != null) 'À ${formatDistance(distance!)} de $fromLabel',
+                          if (place.isApprox) 'position approximative',
+                        ].join(' · ').ifEmpty(place.area),
+                        style: TextStyle(fontSize: 13, color: scheme.onSurfaceVariant),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              ?status,
-              Icon(Icons.chevron_right, color: scheme.onSurfaceVariant),
-            ],
+                if (status != null) Padding(padding: const EdgeInsets.only(right: 8), child: status),
+                Container(
+                  width: 36,
+                  height: 36,
+                  decoration: BoxDecoration(color: scheme.onSurface, shape: BoxShape.circle),
+                  child: Icon(Icons.arrow_forward_rounded, size: 20, color: scheme.surface),
+                ),
+              ],
+            ),
           ),
         ),
       ),

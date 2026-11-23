@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bs_road/app/theme.dart';
 import 'package:bs_road/core/location/location_service.dart';
 import 'package:bs_road/core/location/origin.dart';
 import 'package:bs_road/data/settings/origin_providers.dart';
@@ -15,7 +16,7 @@ Future<void> showOriginSheet(BuildContext context) => showModalBottomSheet<void>
   builder: (_) => const OriginSheet(),
 );
 
-/// Ligne « Départ : … » avec le bouton qui ouvre le choix.
+/// Bouton « Départ : … » qui ouvre le choix, suivi d'une action éventuelle.
 class OriginLine extends ConsumerWidget {
   const OriginLine({super.key, this.trailing});
 
@@ -25,36 +26,58 @@ class OriginLine extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final origin = ref.watch(originProvider);
     final scheme = Theme.of(context).colorScheme;
+    final bs = context.bs;
     return Row(
       children: [
-        Icon(_icon(origin?.source), size: 18, color: scheme.onSurfaceVariant),
-        const SizedBox(width: 6),
-        Expanded(
-          child: TextButton(
-            style: TextButton.styleFrom(
-              padding: EdgeInsets.zero,
-              alignment: Alignment.centerLeft,
-              visualDensity: VisualDensity.compact,
-            ),
-            onPressed: () => showOriginSheet(context),
-            child: Text(
-              origin == null ? 'Indiquer d’où je pars' : 'Départ : ${origin.label}',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
+        Flexible(
+          child: Material(
+            color: origin == null ? bs.accentSoft : bs.card,
+            shape: StadiumBorder(side: BorderSide(color: origin == null ? Colors.transparent : bs.hairline)),
+            child: InkWell(
+              customBorder: const StadiumBorder(),
+              onTap: () => showOriginSheet(context),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(12, 9, 14, 9),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(_icon(origin?.source), size: 17, color: origin == null ? scheme.primary : scheme.onSurface),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: Text(
+                        origin == null ? 'Indiquer d’où je pars' : 'Départ : ${origin.label}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 13.5,
+                          fontWeight: FontWeight.w700,
+                          color: origin == null ? scheme.primary : scheme.onSurface,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 2),
+                    Icon(
+                      Icons.expand_more_rounded,
+                      size: 18,
+                      color: origin == null ? scheme.primary : scheme.onSurfaceVariant,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
-        ?trailing,
+        if (trailing != null) ...[const SizedBox(width: 8), trailing!],
       ],
     );
   }
 }
 
 IconData _icon(OriginSource? s) => switch (s) {
-  OriginSource.gps => Icons.my_location,
-  OriginSource.hotel => Icons.hotel_outlined,
-  OriginSource.pinned => Icons.push_pin_outlined,
-  null => Icons.location_searching,
+  OriginSource.gps => Icons.my_location_rounded,
+  OriginSource.hotel => Icons.hotel_rounded,
+  OriginSource.pinned => Icons.push_pin_rounded,
+  null => Icons.my_location_rounded,
 };
 
 class OriginSheet extends ConsumerWidget {
@@ -87,17 +110,17 @@ class OriginSheet extends ConsumerWidget {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
-              child: Text('Point de départ', style: Theme.of(context).textTheme.titleLarge),
+              padding: const EdgeInsets.fromLTRB(4, 0, 4, 4),
+              child: Text('Point de départ', style: Theme.of(context).textTheme.headlineSmall),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+              padding: const EdgeInsets.fromLTRB(4, 0, 4, 16),
               child: Text(
                 origin == null
                     ? 'Les distances et le tri « autour de moi » partent de ce point.'
@@ -106,7 +129,7 @@ class OriginSheet extends ConsumerWidget {
               ),
             ),
             _Choice(
-              icon: Icons.my_location,
+              icon: Icons.my_location_rounded,
               title: 'Ma position GPS',
               subtitle: gpsText,
               selected: settings.preferred == OriginSource.gps,
@@ -116,7 +139,7 @@ class OriginSheet extends ConsumerWidget {
               },
             ),
             _Choice(
-              icon: Icons.hotel_outlined,
+              icon: Icons.hotel_rounded,
               title: 'Mon hôtel',
               subtitle: settings.hotel == null ? 'Pas encore posé sur la carte.' : 'Posé sur la carte.',
               selected: settings.preferred == OriginSource.hotel,
@@ -127,7 +150,7 @@ class OriginSheet extends ConsumerWidget {
               ),
             ),
             _Choice(
-              icon: Icons.push_pin_outlined,
+              icon: Icons.push_pin_rounded,
               title: 'Un point posé à la main',
               subtitle: settings.pinned == null
                   ? 'Si le GPS ne répond pas : touche la carte là où tu es.'
@@ -166,19 +189,56 @@ class _Choice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    return ListTile(
-      selected: selected,
-      leading: Icon(selected ? Icons.radio_button_checked : Icons.radio_button_unchecked),
-      title: Row(
-        children: [
-          Icon(icon, size: 18, color: selected ? scheme.primary : scheme.onSurfaceVariant),
-          const SizedBox(width: 8),
-          Flexible(child: Text(title)),
-        ],
+    final bs = context.bs;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Semantics(
+        selected: selected,
+        child: Material(
+          color: bs.card,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(BsRadius.card),
+            side: BorderSide(color: selected ? scheme.onSurface : bs.hairline, width: selected ? 1.5 : 1),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: () => unawaited(Future.sync(onTap)),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(14, 12, 8, 12),
+              child: Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: selected ? scheme.onSurface : bs.sunken,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(icon, size: 20, color: selected ? scheme.surface : scheme.onSurface),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(title, style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w700)),
+                        const SizedBox(height: 2),
+                        Text(subtitle, style: TextStyle(fontSize: 13, color: scheme.onSurfaceVariant)),
+                      ],
+                    ),
+                  ),
+                  ?action,
+                  if (action == null && selected)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 6),
+                      child: Icon(Icons.check_circle_rounded, color: scheme.onSurface),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
-      subtitle: Text(subtitle),
-      trailing: action,
-      onTap: () => unawaited(Future.sync(onTap)),
     );
   }
 }

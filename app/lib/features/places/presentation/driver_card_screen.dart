@@ -20,13 +20,14 @@ class DriverCardScreen extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: bs.plaque,
         foregroundColor: bs.plaqueInk,
-        title: const Text('À montrer au chauffeur'),
+        title: Text('À montrer au chauffeur', style: TextStyle(color: bs.plaqueInk.withValues(alpha: 0.7))),
+        actions: const [Padding(padding: EdgeInsets.only(right: 16), child: Seal('去', size: 32, zh: true))],
       ),
       body: place == null
           ? const SizedBox.shrink()
           : SafeArea(
               child: Padding(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -42,6 +43,8 @@ class DriverCardScreen extends ConsumerWidget {
                         style: zhStyle(30, color: bs.plaqueInk, weight: FontWeight.w700),
                       ),
                     const Spacer(),
+                    Container(height: 1, color: bs.plaqueInk.withValues(alpha: 0.15)),
+                    const SizedBox(height: 16),
                     Text(
                       '请带我去这里，谢谢。',
                       style: zhStyle(24, color: bs.plaqueInk.withValues(alpha: 0.85), weight: FontWeight.w600),
