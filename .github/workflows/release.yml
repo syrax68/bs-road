@@ -1,0 +1,69 @@
+# Publication : paquet catalogue, cartes et APK joints à une release GitHub.
+# Se lance en poussant une étiquette (git tag v0.1.0 && git push --tags)
+# ou à la main depuis l'onglet Actions (catalogue seul).
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      catalog_only:
+        description: "Publier seulement le catalogue (pas de cartes ni d'APK)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+env:
+  FLUTTER_VERSION: "3.50.1"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r tools/requirements.txt
+      - name: Paquet catalogue
+        run: python3 tools/build_bundle.py --app-asset
+      - name: Cartes
+        if: ${{ !inputs.catalog_only }}
+        run: python3 tools/extract_maps.py --mbtiles --app-assets
+      - uses: actions/setup-java@v4
+        if: ${{ !inputs.catalog_only }}
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        if: ${{ !inputs.catalog_only }}
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - name: APK
+        if: ${{ !inputs.catalog_only }}
+        working-directory: app
+        run: |
+          flutter pub get
+          flutter build apk --release
+          cp build/app/outputs/flutter-apk/app-release.apk ../dist/bs-road.apk
+      - name: Nom de la release
+        id: name
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT";
+          else echo "tag=catalogue-$(date -u +%Y%m%d%H%M)" >> "$GITHUB_OUTPUT"; fi
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.name.outputs.tag }}
+          name: ${{ steps.name.outputs.tag }}
+          make_latest: true
+          files: |
+            dist/latest.json
+            dist/catalog-*.json.gz
+            dist/maps/*.pmtiles
+            dist/maps/*.mbtiles
+            dist/bs-road.apk

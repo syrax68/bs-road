@@ -1,0 +1,90 @@
+{
+  "id": "sijiqing",
+  "zh": "杭州四季青服装市场",
+  "name": "Sijiqing",
+  "city": "other",
+  "cityName": "Hangzhou, Zhejiang",
+  "group": "far",
+  "area": "Hangzhou, Zhejiang",
+  "categories": [
+    "vetements"
+  ],
+  "amapQuery": "杭州 四季青服装批发市场",
+  "address": "88 Hanghai Road, Shangcheng",
+  "addressZh": "浙江省杭州市上城区航海路88号",
+  "access": "À combiner avec Yiwu : 25 à 40 min de train entre Hangzhou et Yiwu.",
+  "hours": "Non trouvé.",
+  "sells": "Mode féminine de milieu et haut de gamme, style plutôt européen avec des touches japonaises et coréennes.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "Intéressant seulement si tu montes déjà à Yiwu.",
+    "Hangzhou a aussi une Gundam Base (258 Yan'an Lu) et une salle officielle de cartes Pokémon (292 Yan'an Lu, niveau B1)."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de gros en Chine",
+      "url": "https://jingsourcing.com/b-China-wholesale-market/"
+    },
+    {
+      "title": "Bandai, liste des Gundam Base en Chine",
+      "url": "https://satellite.bandai-hobby.net/store/map_asia_china.php"
+    },
+    {
+      "title": "Salles officielles de cartes Pokémon en Chine",
+      "url": "https://pokemon-resource.vip/tcg"
+    }
+  ],
+  "lat": 30.2495,
+  "lng": 120.19055,
+  "approx": "placé sur l'arrêt de bus Sijiqing, Hanghai Lu",
+  "transit": {
+    "metro": null,
+    "bus": [
+      {
+        "zh": "四季青",
+        "en": "",
+        "distanceM": 0,
+        "lines": [
+          "225",
+          "1607"
+        ]
+      },
+      {
+        "zh": "新城隧道东口",
+        "en": "East Xincheng Tunnel Portal",
+        "distanceM": 130,
+        "lines": [
+          "11",
+          "42",
+          "55",
+          "56",
+          "100",
+          "108",
+          "305",
+          "305快",
+          "325",
+          "325快",
+          "520",
+          "533"
+        ]
+      },
+      {
+        "zh": "解放东路秋涛路口",
+        "en": "",
+        "distanceM": 310,
+        "lines": [
+          "11",
+          "42",
+          "55",
+          "56",
+          "108",
+          "225",
+          "305",
+          "325",
+          "325快",
+          "533"
+        ]
+      }
+    ]
+  }
+}

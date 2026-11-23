@@ -1,0 +1,111 @@
+{
+  "id": "zhanxishoes",
+  "zh": "站西鞋城",
+  "name": "Zhanxi, chaussures",
+  "alt": "International Shoes Plaza",
+  "city": "gz",
+  "zone": "gare",
+  "area": "Zhanxi Lu, gare de Guangzhou",
+  "categories": [
+    "chaussures"
+  ],
+  "amapQuery": "广州 国际鞋业广场 站西路",
+  "address": "Partie ouest de Zhanxi Lu et Huanshi Xi Lu",
+  "addressZh": "广州市荔湾区站西路 国际鞋业广场",
+  "access": "Métro Guangzhou Railway Station (lignes 2 et 5). Sortie à vérifier dans Amap.",
+  "hours": "Non trouvé.",
+  "sells": "Une rue de marchés de chaussures sur environ 2 km : baskets, chaussures de ville homme et femme, bottes de travail, matières. Le quartier compte une douzaine de grands marchés et plus de 3 000 boutiques. Guangzhou International Shoes Plaza (国际鞋业广场) vend du milieu et haut de gamme.",
+  "moq": "Gros uniquement à International Shoes Plaza.",
+  "tips": [
+    "Des baskets de grande marque à prix cassé sont des copies : illégales à importer et saisissables en douane. Reste sur les modèles sans marque ou de marque locale.",
+    "Compare plusieurs vendeurs : le prix varie beaucoup selon la qualité."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de chaussures de Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-shoes-market/"
+    },
+    {
+      "title": "Ville de Guangzhou, rues de la chaussure",
+      "url": "https://www.gz.gov.cn/guangzhouinternational/visitors/whattodo/shopping/characteristicstreets/content/post_2998282.html"
+    }
+  ],
+  "lat": 23.14924,
+  "lng": 113.24173,
+  "transit": {
+    "metro": {
+      "zh": "西村",
+      "en": "Xicun",
+      "exit": "C",
+      "distanceM": 580,
+      "lines": [
+        "5",
+        "8"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "克山",
+        "en": "Keshan",
+        "distanceM": 160,
+        "lines": [
+          "34",
+          "46",
+          "179",
+          "198",
+          "225",
+          "268",
+          "274",
+          "290",
+          "524",
+          "538",
+          "545",
+          "823",
+          "夜15",
+          "广42",
+          "广231"
+        ]
+      },
+      {
+        "zh": "环市西路(广园西路口)",
+        "en": "Huanshi West Road(Guangyuan West Road Entrance)",
+        "distanceM": 400,
+        "lines": [
+          "7",
+          "34",
+          "176",
+          "225",
+          "290",
+          "523快线",
+          "524",
+          "530",
+          "545",
+          "823",
+          "夜15",
+          "广42",
+          "广231"
+        ]
+      },
+      {
+        "zh": "省妇幼",
+        "en": "Guangdong Women and Children's Hospital",
+        "distanceM": 410,
+        "lines": [
+          "7",
+          "46",
+          "176",
+          "179",
+          "198",
+          "268",
+          "274",
+          "480路环线(往北站方向)",
+          "480路环线(往省妇幼方向)",
+          "523A",
+          "530",
+          "538",
+          "广佛010路"
+        ]
+      }
+    ]
+  }
+}

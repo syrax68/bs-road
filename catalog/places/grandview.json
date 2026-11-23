@@ -1,0 +1,124 @@
+{
+  "id": "grandview",
+  "zh": "正佳广场",
+  "name": "Grandview Mall",
+  "alt": "Pokémon et Gundam Base",
+  "city": "gz",
+  "zone": "tianhe",
+  "area": "Tianhe Lu, Tianhe",
+  "categories": [
+    "cartes",
+    "figurines"
+  ],
+  "amapQuery": "广州 正佳广场",
+  "address": "228 Tianhe Lu, Tianhe",
+  "addressZh": "广州市天河区天河路228号 正佳广场",
+  "access": "Métro Tiyu Xilu (lignes 1 et 3) d'après mes repères. À confirmer dans Amap.",
+  "hours": "10h à 22h.",
+  "sells": "Deux boutiques officielles dans le même centre commercial. Au 2e étage, la salle officielle de cartes Pokémon (宝可梦官方卡牌道馆), ouverte en août 2025. Au 5e, la Gundam Base de Guangzhou, la plus grande de Chine continentale : environ 600 modèles Bandai et des éditions limitées.",
+  "moq": "Vente au détail, prix officiels.",
+  "tips": [
+    "C'est la référence pour l'authenticité et pour connaître les prix officiels, pas pour acheter en gros.",
+    "Les cartes Pokémon officielles de Chine continentale sont en chinois simplifié."
+  ],
+  "sources": [
+    {
+      "title": "Salles officielles de cartes Pokémon en Chine",
+      "url": "https://pokemon-resource.vip/tcg"
+    },
+    {
+      "title": "Bandai, liste des Gundam Base en Chine",
+      "url": "https://satellite.bandai-hobby.net/store/map_asia_china.php"
+    },
+    {
+      "title": "Xinhua, ouverture de la Gundam Base de Guangzhou",
+      "url": "https://english.news.cn/20250627/88aa540a24fe4fc9b519df7d3416b28b/c.html"
+    },
+    {
+      "title": "Magic Monster, cartes Pokémon chinoises officielles ou non",
+      "url": "https://www.shopmagicmonster.com/insider/are-chinese-pokemon-cards-real-reseller-guide"
+    }
+  ],
+  "lat": 23.13464,
+  "lng": 113.3216,
+  "transit": {
+    "metro": {
+      "zh": "体育中心",
+      "en": "Tianhe Sports Center",
+      "exit": "D2",
+      "distanceM": 260,
+      "lines": [
+        "1"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "体育东路",
+        "en": "Tiyu Dong Lu",
+        "distanceM": 130,
+        "lines": [
+          "11",
+          "18",
+          "45",
+          "54",
+          "137",
+          "195",
+          "230",
+          "245",
+          "517",
+          "540",
+          "545",
+          "813",
+          "广高峰快线30",
+          "夜61"
+        ]
+      },
+      {
+        "zh": "体育中心",
+        "en": "Tianhe Sports Center",
+        "distanceM": 190,
+        "lines": [
+          "18",
+          "59",
+          "78",
+          "89",
+          "130",
+          "233",
+          "245",
+          "263",
+          "280",
+          "540",
+          "545",
+          "夜9",
+          "B10",
+          "夜10",
+          "夜15",
+          "夜17",
+          "夜19",
+          "夜23",
+          "B25",
+          "夜25",
+          "广高峰快线30",
+          "夜35",
+          "夜38",
+          "夜41",
+          "夜47",
+          "夜61"
+        ]
+      },
+      {
+        "zh": "天河公交场总站",
+        "en": "Tianhe Bus Terminal",
+        "distanceM": 190,
+        "lines": [
+          "39",
+          "136",
+          "311",
+          "517",
+          "南K1",
+          "广283班"
+        ]
+      }
+    ]
+  }
+}

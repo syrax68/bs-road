@@ -1,0 +1,44 @@
+{
+  "id": "xianyunhui",
+  "zh": "西岸云汇摩配市场",
+  "name": "Xi'an Yunhui Mopei",
+  "city": "gz",
+  "zone": "zengcha",
+  "area": "Songbei, Baiyun",
+  "categories": [
+    "moto"
+  ],
+  "amapQuery": "广州 西岸云汇摩配",
+  "address": "5 Datang Road, Songbei Industrial Zone, Zengcha Road, Baiyun",
+  "addressZh": "广州市白云区增槎路松北工业区大塘路5号 西岸云汇摩配国际贸易园",
+  "access": "Même arrêt de bus que Xin Baiyun (Songbei, sur Zengcha Lu), puis à pied dans la zone industrielle Songbei.",
+  "hours": "Non trouvé. Compter 9h à 18h, à vérifier.",
+  "sells": "Le deuxième marché né du déménagement de 2024, dans d'anciens entrepôts de la zone Songbei. Pièces de motos et de deux-roues électriques, avec un volet export.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "À faire dans la même demi-journée que Xin Baiyun : les deux marchés se sont partagé plus de 1 400 boutiques venues des anciens marchés.",
+    "Si un fournisseur trouvé sur Alibaba ou 1688 donne encore une adresse « Songnan » ou « Fuxing », demande-lui son nouveau numéro de stand avant de venir."
+  ],
+  "sources": [
+    {
+      "title": "Mopei8, les quatre nouveaux marchés de pièces moto (2024)",
+      "url": "https://www.mopei8.com/news/show-5.html"
+    },
+    {
+      "title": "Sohu, déménagement des marchés moto de Baiyun (2025)",
+      "url": "https://m.sohu.com/a/893460076_161794/"
+    },
+    {
+      "title": "Moto188, guide 2025 des marchés moto de Guangzhou",
+      "url": "http://www.moto188.com/news/show-41036.html"
+    }
+  ],
+  "lat": 23.16318,
+  "lng": 113.22222,
+  "approx": "placé au centre de la zone industrielle Songbei",
+  "added": "2026-11-22",
+  "transit": {
+    "metro": null,
+    "bus": []
+  }
+}

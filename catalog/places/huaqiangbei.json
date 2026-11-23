@@ -1,0 +1,86 @@
+{
+  "id": "huaqiangbei",
+  "zh": "华强北",
+  "name": "Huaqiangbei",
+  "city": "other",
+  "cityName": "Shenzhen",
+  "group": "sz",
+  "area": "Futian, Shenzhen",
+  "categories": [
+    "gadgets"
+  ],
+  "amapQuery": "深圳 华强北 赛格通信市场",
+  "address": "Huaqiang North Road, Futian",
+  "addressZh": "深圳市福田区华强北路",
+  "access": "Depuis Guangzhou Est ou Sud : 29 à 45 min de train rapide, faisable dans la journée. Sur place, métro Huaqiangbei (lignes 2 et 7).",
+  "hours": "La plupart des immeubles : 10h à 20h. Les sources divergent, à vérifier.",
+  "sells": "Le plus grand quartier d'électronique au monde, une vingtaine de marchés spécialisés. SEG Communications Market (赛格通信市场) pour coques et verres trempés, Yuanwang (远望数码商城) pour téléphones et gadgets, Huaqiang Electronics World (华强电子世界) pour gadgets et accessoires. Les composants PC ont leur propre fiche : SEG Electronics Market.",
+  "moq": "Variable. Les prix de gros commencent souvent par carton.",
+  "tips": [
+    "Teste chaque appareil sur place avant de payer.",
+    "Y aller après midi : beaucoup de stands ouvrent tard."
+  ],
+  "sources": [
+    {
+      "title": "TravelChinaGuide, centres d'électronique de Shenzhen",
+      "url": "https://www.travelchinaguide.com/cityguides/guangdong/shenzhen-electronics-malls.htm"
+    },
+    {
+      "title": "Travel of China, Huaqiangbei",
+      "url": "https://www.travelofchina.com/huaqiangbei-shenzhen-china/"
+    },
+    {
+      "title": "China Sourcing Guide, marchés de Guangzhou",
+      "url": "https://china-sourcing-guide.vercel.app/blog/guangzhou-wholesale-markets-guide/"
+    },
+    {
+      "title": "Cities Insider, électronique à Guangzhou 2026",
+      "url": "https://citiesinsider.com/country/china/guangzhou/electronics-and-gadgets/en"
+    },
+    {
+      "title": "JingSourcing, marchés SEG de Shenzhen",
+      "url": "https://jingsourcing.com/b-shenzhen-seg-market/"
+    }
+  ],
+  "lat": 22.5452,
+  "lng": 114.0816,
+  "transit": {
+    "metro": {
+      "zh": "华强北",
+      "en": "Huaqiang North",
+      "exit": "D1",
+      "distanceM": 30,
+      "lines": [
+        "2",
+        "7",
+        "8"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "赛格广场",
+        "en": "SEG Plaza",
+        "distanceM": 220,
+        "lines": [
+          "14",
+          "M191",
+          "B930"
+        ]
+      },
+      {
+        "zh": "振华路中",
+        "en": "Zhenhua Road Middle",
+        "distanceM": 230,
+        "lines": []
+      },
+      {
+        "zh": "华强路地铁站",
+        "en": "Huaqiang Road Metro Station",
+        "distanceM": 290,
+        "lines": [
+          "13"
+        ]
+      }
+    ]
+  }
+}

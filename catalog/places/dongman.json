@@ -1,0 +1,122 @@
+{
+  "id": "dongman",
+  "zh": "动漫星城",
+  "name": "Dongman Xingcheng",
+  "alt": "Animation Star City",
+  "city": "gz",
+  "zone": "gongyuanqian",
+  "area": "Gongyuanqian, Yuexiu",
+  "categories": [
+    "cartes",
+    "figurines"
+  ],
+  "amapQuery": "广州 动漫星城",
+  "address": "1 Jixiang Lu, sous le parc du Peuple, Yuexiu",
+  "addressZh": "广州市越秀区吉祥路1号 动漫星城",
+  "access": "Métro Gongyuanqian (lignes 1 et 2), sorties F ou I. Le centre est relié à la station sur ses trois niveaux.",
+  "hours": "10h à 22h.",
+  "sells": "Le centre commercial souterrain du manga et du jeu à Guangzhou. Le niveau -3 regroupe les boutiques de passionnés : cartes, figurines, jeux. Boutiques de cartes repérées au -3, zone ouest : Guangzhou Tongmeng (广州童梦, BW341-342), l'une des plus anciennes de la ville, et Weida Hangdao (伟大航道卡牌店, BW356-357).",
+  "moq": "Vente au détail. Demande le prix par boîte ou par carton.",
+  "tips": [
+    "Les boutiques changent souvent : ces deux noms viennent de listes de joueurs, à confirmer sur place.",
+    "En Chine, les cartes officielles sont en chinois simplifié, plus quelques imports japonais. Vérifie quelle langue tes clients acceptent avant d'acheter du stock.",
+    "Distributeurs officiels recensés début 2025 : Yaoji, Fengka et Elska pour Pokémon, Yingdie pour One Piece et Yu-Gi-Oh. Demande aux boutiques par qui elles passent.",
+    "Demande toujours si le produit est officiel (正版, zhèngbǎn)."
+  ],
+  "sources": [
+    {
+      "title": "Tencent News, guide de Dongman Xingcheng",
+      "url": "https://news.qq.com/rain/a/20251103A02XWZ00"
+    },
+    {
+      "title": "Sohu, boutiques de cartes de Guangzhou",
+      "url": "https://www.sohu.com/a/156842654_535000"
+    },
+    {
+      "title": "Wiki DN-TCG, boutiques de cartes partenaires",
+      "url": "https://dn-tcg.fandom.com/zh/wiki/%E5%85%A8%E5%9B%BD%E7%89%B9%E7%BA%A6%E5%BA%97%E9%93%BA"
+    },
+    {
+      "title": "Liste de boutiques de cartes par ville",
+      "url": "https://vgcard.yimieji.com/page/cardshops"
+    },
+    {
+      "title": "Yoren, distributeurs de cartes en Chine",
+      "url": "https://note.com/yoren_case/n/n471bd7542812?hl=en"
+    }
+  ],
+  "lat": 23.12869,
+  "lng": 113.25901,
+  "transit": {
+    "metro": {
+      "zh": "公园前",
+      "en": "Gongyuanqian",
+      "exit": "G",
+      "distanceM": 40,
+      "lines": [
+        "1",
+        "2"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "广卫路总站",
+        "en": "Guangwei Lu Bus Terminal",
+        "distanceM": 210,
+        "lines": [
+          "14",
+          "27",
+          "64",
+          "193",
+          "217",
+          "265",
+          "293",
+          "528",
+          "夜38",
+          "广281",
+          "广286"
+        ]
+      },
+      {
+        "zh": "中山五路",
+        "en": "Zhongshan 5th Road",
+        "distanceM": 220,
+        "lines": [
+          "7",
+          "24",
+          "27",
+          "102",
+          "107",
+          "108",
+          "182",
+          "191",
+          "215",
+          "233",
+          "243",
+          "264",
+          "528",
+          "夜8",
+          "夜12",
+          "广12",
+          "夜21",
+          "夜27",
+          "夜40",
+          "广281"
+        ]
+      },
+      {
+        "zh": "公园前",
+        "en": "Gongyuanqian",
+        "distanceM": 260,
+        "lines": [
+          "6",
+          "7",
+          "215",
+          "夜5",
+          "广12",
+          "夜21"
+        ]
+      }
+    ]
+  }
+}

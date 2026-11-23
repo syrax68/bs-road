@@ -1,0 +1,92 @@
+{
+  "id": "yidetoys",
+  "zh": "国际玩具文具精品广场",
+  "name": "Yide Toy Plaza",
+  "city": "gz",
+  "zone": "haizhu",
+  "area": "Yide Lu, Yuexiu",
+  "categories": [
+    "jouets"
+  ],
+  "amapQuery": "广州 国际玩具文具精品广场 一德路",
+  "address": "390 Yide Lu, Yuexiu",
+  "addressZh": "广州市越秀区一德路390号",
+  "access": "Métro Yide Lu, sortie A.",
+  "hours": "Non trouvé.",
+  "sells": "Quatre étages de jouets, papeterie et cadeaux fantaisie. La plupart des acheteurs s'y fournissent pour l'export.",
+  "moq": "Dans le quartier de Yide Lu, compte 1 à 2 cartons par référence.",
+  "tips": [
+    "Yide Lu est le plus grand quartier de jouets de Guangzhou : Onelink, Debao (德宝交易广场, 198 Yide Lu) et ce marché se font à pied.",
+    "Pour un jouet sur mesure ou de gros volumes, les usines sont à Chenghai (Shantou)."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de jouets de Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-toys-market/"
+    },
+    {
+      "title": "China Makers Hub, marchés de Guangzhou",
+      "url": "https://chinamakershub.pages.dev/journal/guangzhou-wholesale-markets-guide/"
+    }
+  ],
+  "lat": 23.115,
+  "lng": 113.25,
+  "approx": "placé sur Yide Lu côté ouest, près du métro Yide Lu",
+  "transit": {
+    "metro": {
+      "zh": "一德路",
+      "en": "Yide Lu",
+      "exit": "A",
+      "distanceM": 200,
+      "lines": [
+        "6"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "一德西",
+        "en": "Yide West",
+        "distanceM": 30,
+        "lines": [
+          "4",
+          "8",
+          "823",
+          "夜6",
+          "夜16",
+          "夜33"
+        ]
+      },
+      {
+        "zh": "一德西总站",
+        "en": "Yide West Bus Terminal",
+        "distanceM": 100,
+        "lines": [
+          "134"
+        ]
+      },
+      {
+        "zh": "人民南路",
+        "en": "Renminnan Lu",
+        "distanceM": 220,
+        "lines": [
+          "4",
+          "31",
+          "38",
+          "102",
+          "106",
+          "110",
+          "128",
+          "134",
+          "186",
+          "209",
+          "217",
+          "556",
+          "夜7",
+          "夜16",
+          "夜26",
+          "夜31"
+        ]
+      }
+    ]
+  }
+}

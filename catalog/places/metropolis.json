@@ -1,0 +1,109 @@
+{
+  "id": "metropolis",
+  "zh": "大都市鞋城",
+  "name": "Metropolis Shoes City",
+  "city": "gz",
+  "zone": "haizhu",
+  "area": "Jiefang Nan Lu, Yuexiu",
+  "categories": [
+    "chaussures"
+  ],
+  "amapQuery": "广州 大都市鞋城 解放南路",
+  "address": "Carrefour Jiefang Nan Lu et Daxin Lu, en face d'Onelink",
+  "addressZh": "广州市越秀区解放南路 大都市鞋城",
+  "access": "Métro Haizhu Square (ligne 2), tout proche.",
+  "hours": "Non trouvé.",
+  "sells": "Le plus grand marché de chaussures en stock de Guangzhou. Surtout des chaussures en cuir de milieu et haut de gamme, avec aussi du sport, de la ville et des talons.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "Les modèles tournent vite : bon endroit pour repérer la tendance.",
+    "Entreposage et expédition proposés sur place."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de chaussures de Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-shoes-market/"
+    }
+  ],
+  "lat": 23.1187,
+  "lng": 113.2573,
+  "approx": "placé au carrefour Jiefang Nan Lu et Daxin Lu",
+  "transit": {
+    "metro": {
+      "zh": "海珠广场",
+      "en": "Haizhu Square",
+      "exit": "B3",
+      "distanceM": 250,
+      "lines": [
+        "2",
+        "6"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "解放南路",
+        "en": "Jiefang South Road",
+        "distanceM": 140,
+        "lines": [
+          "5",
+          "14",
+          "29",
+          "64",
+          "88",
+          "113",
+          "180",
+          "191",
+          "243",
+          "244",
+          "244A",
+          "250",
+          "253",
+          "273",
+          "527",
+          "823",
+          "B8",
+          "夜22",
+          "夜30",
+          "夜36",
+          "广281"
+        ]
+      },
+      {
+        "zh": "一德东",
+        "en": "Yide East",
+        "distanceM": 220,
+        "lines": [
+          "4",
+          "8",
+          "823",
+          "夜6",
+          "夜16",
+          "夜33"
+        ]
+      },
+      {
+        "zh": "海珠广场",
+        "en": "Haizhu Square",
+        "distanceM": 230,
+        "lines": [
+          "8",
+          "10",
+          "14",
+          "29",
+          "82",
+          "88",
+          "180",
+          "183",
+          "253",
+          "519",
+          "823",
+          "夜6",
+          "夜8",
+          "夜22",
+          "夜30",
+          "夜33"
+        ]
+      }
+    ]
+  }
+}

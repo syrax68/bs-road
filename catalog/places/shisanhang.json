@@ -1,0 +1,92 @@
+{
+  "id": "shisanhang",
+  "zh": "十三行 新中国大厦",
+  "name": "Shisanhang",
+  "alt": "New China Plaza",
+  "city": "gz",
+  "zone": "shisanhang",
+  "area": "Shisanhang, Guangzhou",
+  "categories": [
+    "vetements"
+  ],
+  "amapQuery": "广州 十三行 新中国大厦",
+  "address": "1 Shisanhang Road, Liwan",
+  "addressZh": "广州市荔湾区十三行路1号",
+  "access": "Métro Culture Park (ligne 6), puis 10 min à pied.",
+  "hours": "Les sources ne s'accordent pas. L'activité se concentre le matin : arrive tôt.",
+  "sells": "Mode féminine rapide, beaucoup de style coréen. Environ 20 000 stands dans le quartier. L'immeuble voisin Hongbiantian vend jeans, grandes tailles et tenues de tous les jours à petit prix.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "Les nouveautés arrivent très vite : idéal pour repérer les tendances."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de gros en Chine",
+      "url": "https://jingsourcing.com/b-China-wholesale-market/"
+    },
+    {
+      "title": "JingSourcing, marchés de vêtements à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-clothing-market/"
+    },
+    {
+      "title": "Global Sources, guide 2026 des marchés de Guangzhou",
+      "url": "https://www.globalsources.com/knowledge/guangzhou-wholesale-markets/"
+    }
+  ],
+  "lat": 23.11332,
+  "lng": 113.24774,
+  "transit": {
+    "metro": {
+      "zh": "文化公园",
+      "en": "Cultural Park",
+      "exit": "B",
+      "distanceM": 370,
+      "lines": [
+        "6",
+        "8"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "人民南路",
+        "en": "Renminnan Lu",
+        "distanceM": 80,
+        "lines": [
+          "4",
+          "31",
+          "38",
+          "102",
+          "106",
+          "110",
+          "128",
+          "134",
+          "186",
+          "209",
+          "217",
+          "556",
+          "夜7",
+          "夜16",
+          "夜26",
+          "夜31"
+        ]
+      },
+      {
+        "zh": "一德西总站",
+        "en": "Yide West Bus Terminal",
+        "distanceM": 210,
+        "lines": [
+          "134"
+        ]
+      },
+      {
+        "zh": "和平东站",
+        "en": "Hepingdong",
+        "distanceM": 230,
+        "lines": [
+          "82",
+          "夜33"
+        ]
+      }
+    ]
+  }
+}

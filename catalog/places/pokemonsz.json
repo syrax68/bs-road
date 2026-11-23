@@ -1,0 +1,69 @@
+{
+  "id": "pokemonsz",
+  "zh": "宝可梦官方卡牌道馆",
+  "name": "Salle Pokémon, Shenzhen",
+  "alt": "Uniwalk Qianhai",
+  "city": "other",
+  "cityName": "Shenzhen",
+  "group": "sz",
+  "area": "Bao'an, Shenzhen",
+  "categories": [
+    "cartes"
+  ],
+  "amapQuery": "深圳 前海壹方城 宝可梦官方卡牌道馆",
+  "address": "Uniwalk Qianhai, niveau B2, Bao'an",
+  "addressZh": "深圳市宝安区新湖路与创业一路交汇处 前海壹方城B2层",
+  "access": "À l'ouest de Shenzhen, loin de Huaqiangbei. Trajet à vérifier dans Amap.",
+  "hours": "Ouvert jusqu'à 22h ou 22h30 selon le jour.",
+  "sells": "La salle officielle de cartes Pokémon de Shenzhen : produits officiels en chinois simplifié.",
+  "moq": "Vente au détail, prix officiels.",
+  "tips": [
+    "Utile comme référence d'authenticité et de prix, pas pour le gros."
+  ],
+  "sources": [
+    {
+      "title": "Salles officielles de cartes Pokémon en Chine",
+      "url": "https://pokemon-resource.vip/tcg"
+    },
+    {
+      "title": "Magic Monster, cartes Pokémon chinoises officielles ou non",
+      "url": "https://www.shopmagicmonster.com/insider/are-chinese-pokemon-cards-real-reseller-guide"
+    }
+  ],
+  "lat": 22.5562,
+  "lng": 113.8826,
+  "transit": {
+    "metro": {
+      "zh": "宝安中心",
+      "en": "Bao'an Center",
+      "exit": "F",
+      "distanceM": 100,
+      "lines": [
+        "1",
+        "5"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "壹方城",
+        "en": "Yifang Town",
+        "distanceM": 70,
+        "lines": []
+      },
+      {
+        "zh": "壹方中心北",
+        "en": "Yifang Center North",
+        "distanceM": 150,
+        "lines": []
+      },
+      {
+        "zh": "宏发领域",
+        "en": "Hongfalingyu",
+        "distanceM": 240,
+        "lines": [
+          "B837"
+        ]
+      }
+    ]
+  }
+}

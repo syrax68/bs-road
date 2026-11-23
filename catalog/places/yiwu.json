@@ -1,0 +1,78 @@
+{
+  "id": "yiwu",
+  "zh": "义乌国际商贸城",
+  "name": "Yiwu",
+  "alt": "International Trade City",
+  "city": "other",
+  "cityName": "Yiwu, Zhejiang",
+  "group": "far",
+  "area": "Yiwu, Zhejiang",
+  "categories": [
+    "jouets",
+    "cartes",
+    "bijoux",
+    "gadgets",
+    "sacs"
+  ],
+  "amapQuery": "义乌国际商贸城",
+  "address": "69 Chouzhou North Road, Yiwu",
+  "addressZh": "义乌市稠州北路69号",
+  "access": "Depuis Guangzhou : 2 h d'avion (aéroport Baiyun vers Yiwu) ou 6 à 7 h de train.",
+  "hours": "Environ 9h à 17h. Les sources divergent sur le dimanche, à vérifier.",
+  "sells": "Le plus grand marché de petits articles au monde : 75 000 stands répartis en 5 districts. District 1 : bijoux fantaisie, accessoires, jouets, fleurs artificielles. District 2 : sacs et bagages.",
+  "moq": "Bas pour du gros, mais pensé pour le volume.",
+  "tips": [
+    "Meilleurs prix que Guangzhou sur les bijoux fantaisie et petits articles en gros volume.",
+    "Télécharge le plan par district et par étage avant d'y aller.",
+    "Prévois au moins deux jours sur place.",
+    "Yiwu réunit le plus large choix de jouets de Chine, dans le district 1.",
+    "Des sociétés de négoce de Yiwu vendent par carton des cartes Pokémon officielles en chinois simplifié. Exige le code exact de l'extension (CSM, CS ou CSV) et des photos du lot : des contrefaçons circulent sur le même marché."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de gros en Chine",
+      "url": "https://jingsourcing.com/b-China-wholesale-market/"
+    },
+    {
+      "title": "JingSourcing, Yiwu",
+      "url": "https://jingsourcing.com/yiwu-china/"
+    },
+    {
+      "title": "Epic Sourcing, guide Yiwu 2026",
+      "url": "https://www.epicsourcing.co/epic-guide/yiwu-market-guide-international-buyers-2026"
+    },
+    {
+      "title": "JingSourcing, marchés de jouets de Yiwu et Shantou",
+      "url": "https://jingsourcing.com/b-china-toys-wholesale-market/"
+    },
+    {
+      "title": "Magic Monster, cartes Pokémon chinoises officielles ou non",
+      "url": "https://www.shopmagicmonster.com/insider/are-chinese-pokemon-cards-real-reseller-guide"
+    }
+  ],
+  "lat": 29.33644,
+  "lng": 120.10194,
+  "transit": {
+    "metro": {
+      "zh": "国际商贸城",
+      "en": "International Trade Center",
+      "exit": null,
+      "distanceM": 540,
+      "lines": []
+    },
+    "bus": [
+      {
+        "zh": "国际商贸城二区",
+        "en": "",
+        "distanceM": 230,
+        "lines": []
+      },
+      {
+        "zh": "国际商贸城二区(东)",
+        "en": "",
+        "distanceM": 300,
+        "lines": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "liwantoys",
+  "zh": "荔湾玩具批发城",
+  "name": "Liwan Toys",
+  "city": "gz",
+  "zone": "zhongshanba",
+  "area": "Zhongshan Ba Lu, Liwan",
+  "categories": [
+    "jouets"
+  ],
+  "amapQuery": "广州 荔湾玩具批发城 石路基",
+  "address": "36-38 Shiluji, Zhongshan Ba Lu, Liwan",
+  "addressZh": "广州市荔湾区中山八路石路基36-38号",
+  "access": "Métro Zhongshanba, sortie F.",
+  "hours": "Non trouvé.",
+  "sells": "Le marché des peluches et des produits dérivés de personnages connus (Sanrio, Toy Story), installé dans l'immeuble Liwan Business Office.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "Demande la preuve de licence pour les personnages de marque : sans elle, le risque de saisie en douane est réel."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de jouets de Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-toys-market/"
+    }
+  ],
+  "lat": 23.12931,
+  "lng": 113.23187,
+  "approx": "placé sur la rue Shiluji",
+  "transit": {
+    "metro": {
+      "zh": "中山八",
+      "en": "Zhongshanba",
+      "exit": "E",
+      "distanceM": 370,
+      "lines": [
+        "5",
+        "11"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "石路基",
+        "en": "Shiluji",
+        "distanceM": 120,
+        "lines": [
+          "17",
+          "61",
+          "104",
+          "105",
+          "107",
+          "109",
+          "124",
+          "128",
+          "133",
+          "193",
+          "204",
+          "233",
+          "250",
+          "夜2",
+          "旅游2",
+          "夜11",
+          "夜27",
+          "夜31",
+          "夜99",
+          "广205",
+          "广260",
+          "广286",
+          "广885"
+        ]
+      },
+      {
+        "zh": "周门街站",
+        "en": "Zhoumenjie",
+        "distanceM": 140,
+        "lines": [
+          "413"
+        ]
+      },
+      {
+        "zh": "周门(西关外国语学校)",
+        "en": "Zhoumen(Xiguan Foreign Language School)",
+        "distanceM": 160,
+        "lines": [
+          "413"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "buynow",
+  "zh": "百脑汇",
+  "name": "Buynow, Gangding",
+  "city": "gz",
+  "zone": "tianhe",
+  "area": "Gangding, Tianhe",
+  "categories": [
+    "pc",
+    "gadgets"
+  ],
+  "amapQuery": "广州 百脑汇 岗顶",
+  "address": "Tianhe Lu, Gangding, Tianhe",
+  "addressZh": "广州市天河区天河路 百脑汇",
+  "access": "Métro Gangding (ligne 3), sortie C : l'entrée du centre est à la sortie.",
+  "hours": "10h à 19h30 pour le quartier de Gangding.",
+  "sells": "Le centre le plus moderne du quartier informatique de Gangding : PC montés sur mesure, portables gaming, périphériques, stands officiels des marques avec garantie.",
+  "moq": "Vente au détail surtout. Prix à négocier à partir de quelques unités.",
+  "tips": [
+    "Gangding sert surtout à acheter du matériel fini avec garantie. Pour des composants en volume, Huaqiangbei à Shenzhen est mieux placé.",
+    "Regarde le prix sur JD.com et sers-t'en comme plafond dans la négociation.",
+    "Vérifie la région de vente de l'appareil avant de payer, pour éviter les soucis de compatibilité."
+  ],
+  "sources": [
+    {
+      "title": "Cities Insider, électronique à Guangzhou 2026",
+      "url": "https://citiesinsider.com/country/china/guangzhou/electronics-and-gadgets/en"
+    },
+    {
+      "title": "China Daily, quartier informatique de Gangding",
+      "url": "https://govt.chinadaily.com.cn/s/201812/28/WS5c258d99498eb4f01ff25689/gangding-computer-and-digital-product-shopping-circle.html"
+    }
+  ],
+  "lat": 23.13671,
+  "lng": 113.33393,
+  "transit": {
+    "metro": {
+      "zh": "岗顶",
+      "en": "Gangding",
+      "exit": "C",
+      "distanceM": 20,
+      "lines": [
+        "3"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "岗顶站",
+        "en": "Gangding",
+        "distanceM": 40,
+        "lines": [
+          "406路(穗园小区环线顺时针方向)",
+          "夜9",
+          "夜17",
+          "夜19",
+          "夜23",
+          "夜25",
+          "夜38",
+          "夜41",
+          "夜43"
+        ]
+      },
+      {
+        "zh": "BRT岗顶站",
+        "en": "Gangding (BRT)",
+        "distanceM": 50,
+        "lines": [
+          "B1",
+          "B2",
+          "B2A",
+          "B3",
+          "B4",
+          "B5",
+          "B9",
+          "B10",
+          "B12",
+          "B16",
+          "B20",
+          "B21",
+          "B25"
+        ]
+      },
+      {
+        "zh": "石牌东路北站",
+        "en": "Shipai Dong Lu North",
+        "distanceM": 350,
+        "lines": [
+          "218"
+        ]
+      }
+    ]
+  }
+}

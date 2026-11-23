@@ -1,0 +1,25 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - build/**
+    - lib/**/*.g.dart
+    - android/**
+    - ios/**
+  language:
+    strict-casts: true
+    strict-raw-types: true
+
+linter:
+  rules:
+    # App, pas un paquet publié : la doc publique de chaque membre n'est pas exigée.
+    public_member_api_docs: false
+    # Les textes de l'interface sont en français et contiennent des apostrophes.
+    prefer_single_quotes: false
+    avoid_escaping_inner_quotes: true
+    lines_longer_than_80_chars: false
+    # Syntaxe « new(...) » de Dart 3.14 : on garde la forme classique, plus lisible pour tous.
+    unnecessary_type_name_in_constructor: false
+
+formatter:
+  page_width: 120

@@ -1,0 +1,75 @@
+{
+  "id": "liuhua",
+  "zh": "流花服装批发市场",
+  "name": "Liuhua",
+  "city": "gz",
+  "zone": "gare",
+  "area": "Gare de Guangzhou",
+  "categories": [
+    "vetements"
+  ],
+  "amapQuery": "广州 流花服装批发市场",
+  "address": "Quartier de la gare de Guangzhou",
+  "access": "Métro Guangzhou Railway Station (lignes 2 et 5). Sortie à vérifier dans Amap.",
+  "hours": "Non trouvé.",
+  "sells": "Costumes, robes de soirée, tenues décontractées, sport, jeans, maillots de bain, nuit et accessoires de mode.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "Beaucoup de vendeurs travaillent à l'export, surtout vers l'Afrique et l'Asie du Sud-Est. Ils connaissent l'expédition à l'étranger."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de vêtements à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-clothing-market/"
+    }
+  ],
+  "lat": 23.14872,
+  "lng": 113.25072,
+  "approx": "placé sur l'hôtel Liuhua, à côté du marché",
+  "transit": {
+    "metro": {
+      "zh": "广州火车站",
+      "en": "Guangzhou Railway Station",
+      "exit": "D4",
+      "distanceM": 170,
+      "lines": [
+        "2",
+        "5"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "白马服装城(站前路)站",
+        "en": "Baima Cloth City(Zhanqian Road)",
+        "distanceM": 90,
+        "lines": [
+          "301A",
+          "商务专线3"
+        ]
+      },
+      {
+        "zh": "站南路站",
+        "en": "Zhannan Lu",
+        "distanceM": 120,
+        "lines": [
+          "38",
+          "290",
+          "301A",
+          "518",
+          "530",
+          "商务专线3"
+        ]
+      },
+      {
+        "zh": "站南路总站",
+        "en": "Zhannan Lu Bus Terminal",
+        "distanceM": 130,
+        "lines": [
+          "29",
+          "552",
+          "广260"
+        ]
+      }
+    ]
+  }
+}

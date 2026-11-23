@@ -1,0 +1,84 @@
+{
+  "id": "luohu",
+  "zh": "罗湖商业城",
+  "name": "Luohu Commercial City",
+  "city": "other",
+  "cityName": "Shenzhen",
+  "group": "sz",
+  "area": "Luohu, Shenzhen",
+  "categories": [
+    "sacs"
+  ],
+  "amapQuery": "深圳 罗湖商业城",
+  "address": "À côté de la gare de Shenzhen, Luohu",
+  "addressZh": "深圳市罗湖区 罗湖商业城",
+  "access": "Métro Luohu (ligne 1), collé à la gare de Shenzhen.",
+  "hours": "10h à 22h.",
+  "sells": "Un centre de plusieurs étages : sacs, montres, lunettes, costumes sur mesure, souvenirs.",
+  "moq": "Détail et petit gros.",
+  "tips": [
+    "Prix relevés par un guide : sacs et montres de 100 à 1 000 ¥.",
+    "Un sac ou une montre de grande marque à bas prix est une copie, saisissable en douane.",
+    "Négocie : les premiers prix annoncés sont élevés."
+  ],
+  "sources": [
+    {
+      "title": "Travel of China, marchés de gros de Shenzhen",
+      "url": "https://www.travelofchina.com/shenzhen-wholesale-market/"
+    },
+    {
+      "title": "China Highlights, shopping à Shenzhen",
+      "url": "https://chinahighlights.com/shenzhen/shopping.htm"
+    }
+  ],
+  "lat": 22.53281,
+  "lng": 114.11393,
+  "transit": {
+    "metro": {
+      "zh": "罗湖",
+      "en": "Luohu",
+      "exit": "A",
+      "distanceM": 90,
+      "lines": [
+        "1"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "火车站",
+        "en": "Railway Station",
+        "distanceM": 130,
+        "lines": [
+          "1",
+          "12",
+          "17",
+          "82",
+          "306",
+          "E17",
+          "M205",
+          "M205路大站快车"
+        ]
+      },
+      {
+        "zh": "火车站西广场",
+        "en": "West Square of Railway Station",
+        "distanceM": 220,
+        "lines": [
+          "8",
+          "18",
+          "61",
+          "73",
+          "321"
+        ]
+      },
+      {
+        "zh": "双城世纪大厦",
+        "en": "Shuangchengshiji Building",
+        "distanceM": 380,
+        "lines": [
+          "M468"
+        ]
+      }
+    ]
+  }
+}

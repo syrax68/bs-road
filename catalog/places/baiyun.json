@@ -1,0 +1,134 @@
+{
+  "id": "baiyun",
+  "zh": "白云世界皮具贸易中心",
+  "name": "Baiyun World Leather",
+  "city": "gz",
+  "zone": "sanyuanli",
+  "area": "Sanyuanli, Guangzhou",
+  "categories": [
+    "sacs"
+  ],
+  "amapQuery": "广州 白云世界皮具贸易中心",
+  "address": "1356-1358 Jiefang North Road, Yuexiu",
+  "addressZh": "广州市越秀区解放北路1356号",
+  "access": "Métro Sanyuanli (ligne 2), sortie A.",
+  "hours": "9h à 18h. Mieux vaut y aller l'après-midi : peu de stands ouvrent le matin.",
+  "sells": "Le marché de sacs le plus connu de Guangzhou. Sacs surtout, mais aussi ceintures, chaussures et accessoires.",
+  "moq": "Non trouvé, à demander stand par stand.",
+  "tips": [
+    "Beaucoup de stands proposent des copies de marques de luxe. C'est illégal et la marchandise peut être saisie en douane : reste sur les modèles sans marque.",
+    "Compare le cuir, les coutures et la quincaillerie d'un stand à l'autre. Un prix bas ne veut pas dire usine directe.",
+    "Pour une première visite, la phase 1, étages 1 à 3, suffit."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés du cuir à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-leather-market/"
+    },
+    {
+      "title": "JingSourcing, marchés de gros en Chine",
+      "url": "https://jingsourcing.com/b-China-wholesale-market/"
+    }
+  ],
+  "lat": 23.1556,
+  "lng": 113.2577,
+  "approx": "placé sur Jiefang Bei Lu, près de l'arrêt de bus Guihuagang",
+  "transit": {
+    "metro": {
+      "zh": "梓元岗",
+      "en": "Ziyuangang",
+      "exit": "A",
+      "distanceM": 40,
+      "lines": [
+        "11"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "梓元岗",
+        "en": "Ziyuangang",
+        "distanceM": 60,
+        "lines": [
+          "24",
+          "34",
+          "38",
+          "58",
+          "58A",
+          "101",
+          "124",
+          "182",
+          "186",
+          "198",
+          "210",
+          "244",
+          "244A",
+          "254",
+          "265",
+          "273",
+          "280",
+          "284",
+          "807",
+          "807A",
+          "886",
+          "981",
+          "商务专线3",
+          "夜22",
+          "夜40",
+          "夜121"
+        ]
+      },
+      {
+        "zh": "桂花岗",
+        "en": "Guihuagang",
+        "distanceM": 130,
+        "lines": [
+          "24",
+          "34",
+          "38",
+          "58",
+          "58A",
+          "124",
+          "182",
+          "185",
+          "186",
+          "244",
+          "244A",
+          "254",
+          "265",
+          "273",
+          "280",
+          "284",
+          "807",
+          "807A",
+          "886",
+          "商务专线3",
+          "夜22",
+          "夜40",
+          "夜121"
+        ]
+      },
+      {
+        "zh": "三元里大道(桂花岗)",
+        "en": "Sanyuanli Avenue(Guihuagang)",
+        "distanceM": 140,
+        "lines": [
+          "21",
+          "101",
+          "105",
+          "108",
+          "113",
+          "185",
+          "198",
+          "278",
+          "519",
+          "528",
+          "555",
+          "556",
+          "981",
+          "夜12",
+          "夜26"
+        ]
+      }
+    ]
+  }
+}

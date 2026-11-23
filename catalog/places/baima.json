@@ -1,0 +1,82 @@
+{
+  "id": "baima",
+  "zh": "白马服装市场",
+  "name": "Baima",
+  "city": "gz",
+  "zone": "gare",
+  "area": "Gare de Guangzhou",
+  "categories": [
+    "vetements"
+  ],
+  "amapQuery": "广州 白马服装市场",
+  "address": "16 Zhannan Road, Yuexiu",
+  "addressZh": "广州市越秀区站南路16号",
+  "access": "Métro Guangzhou Railway Station (lignes 2 et 5), 3 à 5 min à pied.",
+  "hours": "Ouverture vers 8h30 ou 9h, fermeture 17h30.",
+  "sells": "Prêt-à-porter féminin de milieu et haut de gamme sur les étages 1 à 5, plus de 200 boutiques par étage. Aussi de l'homme habillé.",
+  "moq": "Achat en lot préféré, variable selon la boutique.",
+  "tips": [
+    "C'est le marché le plus cher des trois grands quartiers de vêtements. Compare avec Shisanhang et Shahe avant de commander.",
+    "Très fréquenté par les acheteurs étrangers."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de gros en Chine",
+      "url": "https://jingsourcing.com/b-China-wholesale-market/"
+    },
+    {
+      "title": "JingSourcing, marchés de vêtements à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-clothing-market/"
+    },
+    {
+      "title": "Global Sources, guide 2026 des marchés de Guangzhou",
+      "url": "https://www.globalsources.com/knowledge/guangzhou-wholesale-markets/"
+    }
+  ],
+  "lat": 23.14948,
+  "lng": 113.24908,
+  "transit": {
+    "metro": {
+      "zh": "广州火车站",
+      "en": "Guangzhou Railway Station",
+      "exit": "G",
+      "distanceM": 110,
+      "lines": [
+        "2",
+        "5"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "白马服装城(站前路)站",
+        "en": "Baima Cloth City(Zhanqian Road)",
+        "distanceM": 100,
+        "lines": [
+          "301A",
+          "商务专线3"
+        ]
+      },
+      {
+        "zh": "广东省汽车客运站",
+        "en": "Guangdong Coach Station",
+        "distanceM": 240,
+        "lines": [
+          "广佛010路"
+        ]
+      },
+      {
+        "zh": "站南路站",
+        "en": "Zhannan Lu",
+        "distanceM": 240,
+        "lines": [
+          "38",
+          "290",
+          "301A",
+          "518",
+          "530",
+          "商务专线3"
+        ]
+      }
+    ]
+  }
+}

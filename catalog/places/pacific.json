@@ -1,0 +1,96 @@
+{
+  "id": "pacific",
+  "zh": "太平洋数码广场",
+  "name": "Pacific Digital Plaza",
+  "alt": "Taipingyang",
+  "city": "gz",
+  "zone": "tianhe",
+  "area": "Gangding, Tianhe",
+  "categories": [
+    "pc"
+  ],
+  "amapQuery": "广州 太平洋数码广场",
+  "address": "560 Tianhe Lu, Gangding",
+  "addressZh": "广州市天河区天河路560号 太平洋电脑城",
+  "access": "Métro Gangding (ligne 3), à côté de la station.",
+  "hours": "10h à 19h30 pour le quartier de Gangding.",
+  "sells": "Le centre historique de Gangding pour les périphériques, les pièces et la réparation. Seule la partie A est encore un marché informatique. Juste à côté : Tianhe Computer City (天河电脑城) et le marché d'ordinateurs d'occasion de Shipai Xi Lu.",
+  "moq": "Détail et petit gros.",
+  "tips": [
+    "Pour un PC complet, fais chiffrer la même configuration dans deux ou trois boutiques.",
+    "Fais tester chaque pièce devant toi et garde la facture avec les numéros de série."
+  ],
+  "sources": [
+    {
+      "title": "Cities Insider, électronique à Guangzhou 2026",
+      "url": "https://citiesinsider.com/country/china/guangzhou/electronics-and-gadgets/en"
+    },
+    {
+      "title": "Business in Guangzhou, Taipingyang Computer Market",
+      "url": "https://business-in-guangzhou.com/?p=709"
+    },
+    {
+      "title": "China Daily, quartier informatique de Gangding",
+      "url": "https://govt.chinadaily.com.cn/s/201812/28/WS5c258d99498eb4f01ff25689/gangding-computer-and-digital-product-shopping-circle.html"
+    }
+  ],
+  "lat": 23.13624,
+  "lng": 113.33221,
+  "transit": {
+    "metro": {
+      "zh": "岗顶",
+      "en": "Gangding",
+      "exit": "C",
+      "distanceM": 180,
+      "lines": [
+        "3"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "BRT岗顶站",
+        "en": "Gangding (BRT)",
+        "distanceM": 50,
+        "lines": [
+          "B1",
+          "B2",
+          "B2A",
+          "B3",
+          "B4",
+          "B5",
+          "B9",
+          "B10",
+          "B12",
+          "B16",
+          "B20",
+          "B21",
+          "B25"
+        ]
+      },
+      {
+        "zh": "岗顶",
+        "en": "Gangding",
+        "distanceM": 90,
+        "lines": [
+          "406路(穗园小区环线顺时针方向)",
+          "夜9",
+          "夜17",
+          "夜19",
+          "夜23",
+          "夜25",
+          "夜38",
+          "夜41",
+          "夜43"
+        ]
+      },
+      {
+        "zh": "龙口西路南站",
+        "en": "Longkou Xi Lu South",
+        "distanceM": 290,
+        "lines": [
+          "406路(穗园小区环线顺时针方向)"
+        ]
+      }
+    ]
+  }
+}

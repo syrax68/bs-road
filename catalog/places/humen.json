@@ -1,0 +1,74 @@
+{
+  "id": "humen",
+  "zh": "虎门富民时装城",
+  "name": "Humen",
+  "city": "other",
+  "cityName": "Dongguan",
+  "group": "near",
+  "area": "Humen, Dongguan",
+  "categories": [
+    "vetements"
+  ],
+  "amapQuery": "东莞 虎门 富民时装城",
+  "address": "Autour de Yinlong Lu, Humen",
+  "addressZh": "东莞市虎门镇",
+  "access": "Depuis Guangzhou Sud : train rapide jusqu'à la gare de Humen, 17 à 46 min selon le train, puis taxi.",
+  "hours": "Non trouvé.",
+  "sells": "La ville du prêt-à-porter féminin. Marchés principaux : Fumin (富民时装城) et Huanghe (黄河时装城), plus un marché de vêtements pour enfants.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "Se combine bien avec Shenzhen : Humen est sur la même ligne de train."
+  ],
+  "sources": [
+    {
+      "title": "TravelChinaGuide, train Guangzhou–Humen",
+      "url": "https://www.travelchinaguide.com/china-trains/high-speed/guangzhou-humen.htm"
+    },
+    {
+      "title": "Welcome to China, mode à Humen",
+      "url": "https://welcometochina.com.au/clothes-and-fashion-in-humen-china-946.html"
+    }
+  ],
+  "lat": 22.82014,
+  "lng": 113.67019,
+  "approx": "placé sur Huanghe Fashion City, Fumin est voisin",
+  "transit": {
+    "metro": null,
+    "bus": [
+      {
+        "zh": "黄河时装城",
+        "en": "",
+        "distanceM": 100,
+        "lines": [
+          "212",
+          "235",
+          "237",
+          "262",
+          "263",
+          "266",
+          "268"
+        ]
+      },
+      {
+        "zh": "永安桥",
+        "en": "",
+        "distanceM": 270,
+        "lines": [
+          "237",
+          "262",
+          "266"
+        ]
+      },
+      {
+        "zh": "永安站",
+        "en": "",
+        "distanceM": 370,
+        "lines": [
+          "229",
+          "262",
+          "268"
+        ]
+      }
+    ]
+  }
+}

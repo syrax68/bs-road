@@ -1,0 +1,58 @@
+{
+  "id": "guzhen",
+  "zh": "古镇 星光联盟",
+  "name": "Guzhen",
+  "city": "other",
+  "cityName": "Zhongshan",
+  "group": "near",
+  "area": "Guzhen, Zhongshan",
+  "categories": [
+    "luminaires"
+  ],
+  "amapQuery": "中山 古镇 星光联盟",
+  "address": "Guzhen, Zhongshan",
+  "addressZh": "中山市古镇镇",
+  "access": "Depuis Guangzhou Sud : train jusqu'à la gare de Guzhen, 21 à 32 min. Environ 7 trains par jour.",
+  "hours": "Non trouvé.",
+  "sells": "La capitale chinoise du luminaire. Star Alliance (星光联盟) pour le haut de gamme, Huayi Plaza (华艺广场) pour le gros et le détail, Lihe (利和灯博中心).",
+  "moq": "Non trouvé.",
+  "tips": [
+    "La plupart des boutiques interdisent les photos.",
+    "On y trouve surtout des luminaires de maison. Pour les lampes gadget (coucher de soleil, projecteur galaxie), commence plutôt par Onelink ou Shenzhen."
+  ],
+  "sources": [
+    {
+      "title": "TravelChinaGuide, trains Guangzhou–Guzhen",
+      "url": "https://www.travelchinaguide.com/guangzhou-to-guzhen-trains.htm"
+    },
+    {
+      "title": "JingSourcing, marché du luminaire de Guzhen",
+      "url": "https://jingsourcing.com/b-guzhen-lighting-market/"
+    }
+  ],
+  "lat": 22.61916,
+  "lng": 113.1858,
+  "transit": {
+    "metro": null,
+    "bus": [
+      {
+        "zh": "六坊花园",
+        "en": "Liufang Garden",
+        "distanceM": 260,
+        "lines": [
+          "202",
+          "398"
+        ]
+      },
+      {
+        "zh": "乐丰花园",
+        "en": "Lefeng Garden",
+        "distanceM": 260,
+        "lines": [
+          "202",
+          "398"
+        ]
+      }
+    ]
+  }
+}

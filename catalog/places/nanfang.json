@@ -1,0 +1,87 @@
+{
+  "id": "nanfang",
+  "zh": "南方大厦国际电子数码城",
+  "name": "Nanfang Building",
+  "city": "gz",
+  "zone": "shisanhang",
+  "area": "Xidi Er Malu, Guangzhou",
+  "categories": [
+    "gadgets"
+  ],
+  "amapQuery": "广州 南方大厦国际电子数码城",
+  "address": "28-32 Xidi Er Malu",
+  "addressZh": "广州市荔湾区西堤二马路28号",
+  "access": "Métro Culture Park (ligne 6), sortie B.",
+  "hours": "Non trouvé.",
+  "sells": "Six étages d'électronique et de téléphonie : écrans de téléphone, appareils de test, accessoires.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "À deux pas de New Asia : fais les deux dans la même demi-journée."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés d'électronique à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-electornics-market"
+    }
+  ],
+  "lat": 23.11085,
+  "lng": 113.24757,
+  "transit": {
+    "metro": {
+      "zh": "文化公园",
+      "en": "Cultural Park",
+      "exit": "B",
+      "distanceM": 290,
+      "lines": [
+        "6",
+        "8"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "西堤码头",
+        "en": "Xidi Ferry Pier",
+        "distanceM": 80,
+        "lines": [
+          "西关风情线(逆时针环线)"
+        ]
+      },
+      {
+        "zh": "文化公园总站",
+        "en": "",
+        "distanceM": 80,
+        "lines": [
+          "538"
+        ]
+      },
+      {
+        "zh": "南方大厦",
+        "en": "Southern Building",
+        "distanceM": 90,
+        "lines": [
+          "1",
+          "31",
+          "38",
+          "64",
+          "102",
+          "106",
+          "128",
+          "131A",
+          "186",
+          "208",
+          "209",
+          "217",
+          "552",
+          "556",
+          "夜1",
+          "旅游2",
+          "夜7",
+          "夜26",
+          "夜31",
+          "夜113",
+          "广281"
+        ]
+      }
+    ]
+  }
+}

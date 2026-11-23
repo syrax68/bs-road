@@ -1,0 +1,108 @@
+{
+  "id": "yuefu",
+  "zh": "越富广场",
+  "name": "Yuefu Plaza",
+  "alt": "boutiques de cartes",
+  "city": "gz",
+  "zone": "gongyuanqian",
+  "area": "Renmin Bei Lu, Yuexiu",
+  "categories": [
+    "cartes"
+  ],
+  "amapQuery": "广州 越富广场 人民北路",
+  "address": "829-831 Renmin Bei Lu, phase 2, 4e étage",
+  "addressZh": "广州市越秀区人民北路829-831号 越富创兴广场二期4楼",
+  "access": "Quartier de Ximenkou. Station de métro à confirmer dans Amap.",
+  "hours": "Non trouvé.",
+  "sells": "Un étage où se regroupent plusieurs boutiques de cartes à jouer et à collectionner : Youhun (游魂动漫卡牌店, stands 99-100), Zhuzhu (猪猪卡牌, stand 259) et Xingyue (兴悦桌游, stand 218). Ces adresses figurent dans des listes de boutiques Yu-Gi-Oh.",
+  "moq": "Détail et boîtes complètes.",
+  "tips": [
+    "Adresses issues de listes de joueurs, dont une mise à jour en 2026. Vérifie sur place qu'elles existent encore.",
+    "Bon endroit pour demander qui distribue en gros les cartes officielles."
+  ],
+  "sources": [
+    {
+      "title": "Liste de boutiques de cartes par ville",
+      "url": "https://vgcard.yimieji.com/page/cardshops"
+    },
+    {
+      "title": "Zhihu, boutiques Yu-Gi-Oh en Chine",
+      "url": "https://www.zhihu.com/question/278817922"
+    }
+  ],
+  "lat": 23.13264,
+  "lng": 113.24904,
+  "transit": {
+    "metro": {
+      "zh": "西门口",
+      "en": "Ximenkou",
+      "exit": "C",
+      "distanceM": 510,
+      "lines": [
+        "1"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "人民北路",
+        "en": "Renmin North Road",
+        "distanceM": 40,
+        "lines": [
+          "2",
+          "31",
+          "38",
+          "109",
+          "128",
+          "186",
+          "556",
+          "823",
+          "夜7",
+          "夜26",
+          "夜31"
+        ]
+      },
+      {
+        "zh": "西华路",
+        "en": "Xihua Road",
+        "distanceM": 220,
+        "lines": [
+          "4",
+          "134",
+          "夜16"
+        ]
+      },
+      {
+        "zh": "市少年宫",
+        "en": "Guangzhou Children’s Palace",
+        "distanceM": 300,
+        "lines": [
+          "2",
+          "29",
+          "31",
+          "38",
+          "80",
+          "105",
+          "133",
+          "186",
+          "204",
+          "215",
+          "229",
+          "253",
+          "256",
+          "261",
+          "297",
+          "518",
+          "555",
+          "B3",
+          "夜7",
+          "广12",
+          "夜19",
+          "夜21",
+          "广276",
+          "广283",
+          "广283班"
+        ]
+      }
+    ]
+  }
+}

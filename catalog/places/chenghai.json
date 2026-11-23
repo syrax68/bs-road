@@ -1,0 +1,48 @@
+{
+  "id": "chenghai",
+  "zh": "澄海 宝奥国际玩具城",
+  "name": "Chenghai",
+  "alt": "Baoao Toys City",
+  "city": "other",
+  "cityName": "Shantou",
+  "group": "far",
+  "area": "Chenghai, Shantou",
+  "categories": [
+    "jouets"
+  ],
+  "amapQuery": "汕头 澄海 宝奥国际玩具城",
+  "address": "Zhongshan Bei Lu, Chenghai, Shantou",
+  "addressZh": "广东省汕头市澄海区 宝奥国际玩具城",
+  "access": "Depuis Guangzhou : compter environ 4 h. La gare TGV de Shantou est à 40 min de route de Chenghai.",
+  "hours": "Non trouvé.",
+  "sells": "La capitale chinoise du jouet, avec des milliers d'usines. Baoao (宝奥国际玩具城) réunit plus de 2 000 boutiques de jouets finis sur un seul site : plastique, électronique, radiocommandé, éducatif.",
+  "moq": "Volumes d'usine. Pour de petits lots mélangés, Yide Lu à Guangzhou est plus pratique.",
+  "tips": [
+    "Les halls d'exposition servent à choisir sur échantillon, puis à commander à l'usine.",
+    "Note le code produit de chaque modèle : une photo seule ne suffit pas pour retrouver un prix."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de jouets de Yiwu et Shantou",
+      "url": "https://jingsourcing.com/b-china-toys-wholesale-market/"
+    },
+    {
+      "title": "Tony Sourcing, marchés de jouets en Chine",
+      "url": "https://tonysourcing.com/?p=24557"
+    },
+    {
+      "title": "Tony Sourcing, acheter des jouets en Chine",
+      "url": "https://tonysourcing.com/?p=31501"
+    },
+    {
+      "title": "WorldFirst, guide de Guangzhou",
+      "url": "https://socialworldfirst.github.io/china-sourcing-navigator-v2/cities/guangzhou"
+    }
+  ],
+  "lat": 23.49396,
+  "lng": 116.84209,
+  "transit": {
+    "metro": null,
+    "bus": []
+  }
+}

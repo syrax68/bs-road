@@ -1,0 +1,29 @@
+{
+  "_doc": "Cartes hors ligne. Chaque paquet est découpé par tools/extract_maps.py dans un build Protomaps (données OpenStreetMap). embedded = inclus dans l'app ; sinon téléchargeable. bbox = [ouest, sud, est, nord] en WGS-84.",
+  "packs": [
+    {
+      "id": "chine",
+      "name": "Chine, vue d'ensemble",
+      "bbox": [97.0, 18.0, 123.0, 42.0],
+      "minZoom": 0,
+      "maxZoom": 7,
+      "embedded": true
+    },
+    {
+      "id": "guangzhou",
+      "name": "Guangzhou, centre",
+      "bbox": [113.19, 23.07, 113.40, 23.19],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "embedded": true
+    },
+    {
+      "id": "shenzhen",
+      "name": "Shenzhen",
+      "bbox": [113.85, 22.50, 114.15, 22.62],
+      "minZoom": 8,
+      "maxZoom": 15,
+      "embedded": false
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "gare",
+    "letter": "A",
+    "name": "Gare de Guangzhou",
+    "access": "Métro Guangzhou Railway Station, lignes 2 et 5"
+  },
+  {
+    "id": "sanyuanli",
+    "letter": "B",
+    "name": "Sanyuanli",
+    "access": "Métro Sanyuanli (L2) ou Ziyuangang (L11)"
+  },
+  {
+    "id": "shisanhang",
+    "letter": "C",
+    "name": "Shisanhang et Xidi",
+    "access": "Métro Cultural Park, lignes 6 et 8"
+  },
+  {
+    "id": "haizhu",
+    "letter": "D",
+    "name": "Place Haizhu et Yide Lu",
+    "access": "Métro Haizhu Square (L2, L6) ou Yide Lu (L6)"
+  },
+  {
+    "id": "changshou",
+    "letter": "E",
+    "name": "Changshou Lu",
+    "access": "Métro Hualinsi, ligne 8"
+  },
+  {
+    "id": "shahe",
+    "letter": "F",
+    "name": "Shahe",
+    "access": "Métro Shaheding, ligne 6"
+  },
+  {
+    "id": "tianhe",
+    "letter": "G",
+    "name": "Tianhe",
+    "access": "Métro Gangding (L3), Tianhe Sports Center (L1)"
+  },
+  {
+    "id": "dashatou",
+    "letter": "H",
+    "name": "Dashatou",
+    "access": "Métro Donghu, lignes 6 et 10"
+  },
+  {
+    "id": "gongyuanqian",
+    "letter": "I",
+    "name": "Gongyuanqian et Ximenkou",
+    "access": "Métro Gongyuanqian (L1, L2), Ximenkou (L1)"
+  },
+  {
+    "id": "zhongshanba",
+    "letter": "J",
+    "name": "Zhongshan Ba Lu",
+    "access": "Métro Zhongshanba, lignes 5 et 11"
+  },
+  {
+    "id": "zengcha",
+    "letter": "K",
+    "name": "Zengcha Lu et Jinshazhou",
+    "access": "Bus Songbei ; métro Hengsha (L6) à Jinshazhou"
+  }
+]

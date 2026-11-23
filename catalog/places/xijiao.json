@@ -1,0 +1,77 @@
+{
+  "id": "xijiao",
+  "zh": "西郊大厦",
+  "name": "Xijiao Building",
+  "city": "gz",
+  "zone": "gare",
+  "area": "Gare de Guangzhou",
+  "categories": [
+    "bijoux"
+  ],
+  "amapQuery": "广州 西郊大厦",
+  "address": "Près de la gare de Guangzhou",
+  "access": "Métro Guangzhou Railway Station (lignes 2 et 5). Sortie à vérifier dans Amap.",
+  "hours": "Non trouvé.",
+  "sells": "Bijoux fantaisie à prix bas et moyens. 1er étage : montres et bijoux mélangés. 2e : cuivre. 3e : acier. Étages 4 et 5 : composants.",
+  "moq": "12 pièces par modèle.",
+  "tips": [
+    "Moins cher que Taikang.",
+    "La tour A travaille surtout à l'export."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de bijoux à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-jewelry-market/"
+    }
+  ],
+  "lat": 23.14131,
+  "lng": 113.23992,
+  "approx": "placé sur l'arrêt de bus Xijiao Dasha, Zhanqian Lu",
+  "transit": {
+    "metro": {
+      "zh": "西村",
+      "en": "Xicun",
+      "exit": null,
+      "distanceM": 360,
+      "lines": [
+        "5",
+        "8"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "站前路(西郊大厦)总站",
+        "en": "Zhanqian Lu(Xijiao Building) Bus Terminal",
+        "distanceM": 0,
+        "lines": [
+          "301A",
+          "518",
+          "商务专线3"
+        ]
+      },
+      {
+        "zh": "西站",
+        "en": "West Railway Station",
+        "distanceM": 120,
+        "lines": [
+          "518",
+          "530",
+          "552",
+          "823",
+          "商务专线3",
+          "夜11",
+          "广260",
+          "广275"
+        ]
+      },
+      {
+        "zh": "广雅路站",
+        "en": "Guangya Lu",
+        "distanceM": 240,
+        "lines": [
+          "486"
+        ]
+      }
+    ]
+  }
+}

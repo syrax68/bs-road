@@ -1,0 +1,119 @@
+{
+  "id": "buyun",
+  "zh": "步云天地",
+  "name": "Buyun Tiandi",
+  "alt": "International Shoes City",
+  "city": "gz",
+  "zone": "gare",
+  "area": "Zhanxi Lu, gare de Guangzhou",
+  "categories": [
+    "chaussures"
+  ],
+  "amapQuery": "广州 步云天地 站西路",
+  "address": "26 Zhanxi Lu",
+  "addressZh": "广州市站西路26号 步云天地",
+  "access": "Métro Guangzhou Railway Station (lignes 2 et 5). Sortie à vérifier dans Amap.",
+  "hours": "Non trouvé.",
+  "sells": "Chaussures de milieu et haut de gamme, avec un marché de cuirs et de matières pour la chaussure. L'un des marchés de chaussures les plus connus de Guangzhou.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "Prix indicatif relevé par un guide : 150 à 200 ¥ la paire.",
+    "Contrôle la colle, la symétrie, les coutures et la pointure : les tailles ne suivent pas toutes la même norme."
+  ],
+  "sources": [
+    {
+      "title": "TravelChinaGuide, marchés de gros de Guangzhou",
+      "url": "https://www.travelchinaguide.com/cityguides/guangdong/guangzhou/wholesale-markets.htm"
+    },
+    {
+      "title": "JingSourcing, marchés de chaussures de Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-shoes-market/"
+    },
+    {
+      "title": "JingSourcing, marchés du cuir à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-leather-market/"
+    },
+    {
+      "title": "China Highlights, shopping à Guangzhou",
+      "url": "https://proxy-www.chinahighlights.com/guangzhou/shopping.htm"
+    }
+  ],
+  "lat": 23.14979,
+  "lng": 113.24226,
+  "transit": {
+    "metro": {
+      "zh": "广州火车站",
+      "en": "Guangzhou Railway Station",
+      "exit": "F",
+      "distanceM": 570,
+      "lines": [
+        "2",
+        "5"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "克山",
+        "en": "Keshan",
+        "distanceM": 230,
+        "lines": [
+          "34",
+          "46",
+          "179",
+          "198",
+          "225",
+          "268",
+          "274",
+          "290",
+          "524",
+          "538",
+          "545",
+          "823",
+          "夜15",
+          "广42",
+          "广231"
+        ]
+      },
+      {
+        "zh": "省妇幼",
+        "en": "Guangdong Women and Children's Hospital",
+        "distanceM": 330,
+        "lines": [
+          "7",
+          "46",
+          "176",
+          "179",
+          "198",
+          "268",
+          "274",
+          "480路环线(往北站方向)",
+          "480路环线(往省妇幼方向)",
+          "523A",
+          "530",
+          "538",
+          "广佛010路"
+        ]
+      },
+      {
+        "zh": "环市西路(广园西路口)",
+        "en": "Huanshi West Road(Guangyuan West Road Entrance)",
+        "distanceM": 340,
+        "lines": [
+          "7",
+          "34",
+          "176",
+          "225",
+          "290",
+          "523快线",
+          "524",
+          "530",
+          "545",
+          "823",
+          "夜15",
+          "广42",
+          "广231"
+        ]
+      }
+    ]
+  }
+}

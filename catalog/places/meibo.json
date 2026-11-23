@@ -1,0 +1,84 @@
+{
+  "id": "meibo",
+  "zh": "美博城",
+  "name": "Meibo City",
+  "alt": "Beauty Exchange Center",
+  "city": "gz",
+  "zone": "sanyuanli",
+  "area": "Sanyuanli, Guangzhou",
+  "categories": [
+    "beaute"
+  ],
+  "amapQuery": "广州 美博城",
+  "address": "121 Guangyuan West Road",
+  "addressZh": "广州市广园西路121号",
+  "access": "Métro Sanyuanli (ligne 2), sortie D, puis 600 m à pied en direction de la gare.",
+  "hours": "9h à 18h.",
+  "sells": "Le plus grand marché de beauté de Guangzhou, plus de 2 000 boutiques : cosmétiques, soins, perruques et extensions, ongles, cils, outils de coiffure. Le 2e étage est consacré aux emballages.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "Le bloc A regroupe ongles, cils et cheveux.",
+    "Au sous-sol, la numérotation des stands est désordonnée : note bien l'emplacement de chaque boutique."
+  ],
+  "sources": [
+    {
+      "title": "Business in Guangzhou, Beauty Exchange Center",
+      "url": "https://business-in-guangzhou.com/?p=2402"
+    },
+    {
+      "title": "Global Sources, guide 2026 des marchés de Guangzhou",
+      "url": "https://www.globalsources.com/knowledge/guangzhou-wholesale-markets/"
+    }
+  ],
+  "lat": 23.15859,
+  "lng": 113.24608,
+  "transit": {
+    "metro": {
+      "zh": "三元里",
+      "en": "Sanyuanli",
+      "exit": "D",
+      "distanceM": 500,
+      "lines": [
+        "2"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "瑶台西街站",
+        "en": "Yaotai Xijie",
+        "distanceM": 70,
+        "lines": [
+          "480路环线(往省妇幼方向)",
+          "661"
+        ]
+      },
+      {
+        "zh": "瑶台",
+        "en": "Yaotai",
+        "distanceM": 150,
+        "lines": [
+          "7",
+          "46",
+          "176",
+          "179",
+          "198",
+          "268",
+          "274",
+          "480路环线(往北站方向)",
+          "523A",
+          "530",
+          "538",
+          "661",
+          "740",
+          "广佛010路"
+        ]
+      },
+      {
+        "zh": "瑶台(美博城)总站",
+        "en": "Yaotai Bus Terminal",
+        "distanceM": 150,
+        "lines": []
+      }
+    ]
+  }
+}

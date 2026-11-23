@@ -1,0 +1,30 @@
+# Contrôle du catalogue : chaque ajout de lieu passe par ici avant fusion.
+name: catalog-ci
+
+on:
+  pull_request:
+    paths: ["catalog/**", "tools/**", ".github/workflows/catalog-ci.yml"]
+  push:
+    branches: [main]
+    paths: ["catalog/**", "tools/**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r tools/requirements.txt
+      - name: Tests des outils
+        run: python3 -m unittest discover -s tools
+      - name: Contrôle du catalogue
+        run: python3 tools/validate.py
+      - name: Construction du paquet
+        run: python3 tools/build_bundle.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: catalog-bundle
+          path: dist/
+          retention-days: 7

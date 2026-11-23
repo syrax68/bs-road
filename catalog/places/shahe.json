@@ -1,0 +1,80 @@
+{
+  "id": "shahe",
+  "zh": "沙河服装批发市场",
+  "name": "Shahe",
+  "city": "gz",
+  "zone": "shahe",
+  "area": "Tianhe, Guangzhou",
+  "categories": [
+    "vetements"
+  ],
+  "amapQuery": "广州 沙河服装批发市场 万佳",
+  "address": "1 Lianquan Road, Tianhe",
+  "addressZh": "广州市天河区濂泉路1号",
+  "access": "Métro Shaheding (ligne 6).",
+  "hours": "Très tôt : 5h à 11h en semaine, jusqu'à 14h le week-end. Les grossistes arrivent dès 3h ou 4h.",
+  "sells": "Les vêtements les moins chers de Guangzhou : jeans, mode femme, T-shirts. Plus de 20 000 stands, avec Wanjia et Jinma comme marchés principaux.",
+  "moq": "Certains vendeurs acceptent dès 3 à 5 pièces.",
+  "tips": [
+    "Qualité un cran en dessous de Baima et Shisanhang : contrôle chaque lot.",
+    "Clientèle habituée à l'export vers l'Afrique et le Moyen-Orient."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de gros en Chine",
+      "url": "https://jingsourcing.com/b-China-wholesale-market/"
+    },
+    {
+      "title": "JingSourcing, marchés de vêtements à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-clothing-market/"
+    },
+    {
+      "title": "TravelChinaGuide, marchés de gros de Guangzhou",
+      "url": "https://www.travelchinaguide.com/cityguides/guangdong/guangzhou/wholesale-markets.htm"
+    }
+  ],
+  "lat": 23.1553,
+  "lng": 113.29829,
+  "approx": "placé sur le marché Yimin, au cœur du quartier Shahe",
+  "transit": {
+    "metro": {
+      "zh": "沙河顶",
+      "en": "Shaheding",
+      "exit": "B",
+      "distanceM": 670,
+      "lines": [
+        "6"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "西坑(益民服装城)",
+        "en": "Xikeng (Yimin Cloth Market)",
+        "distanceM": 80,
+        "lines": [
+          "110",
+          "297"
+        ]
+      },
+      {
+        "zh": "西坑",
+        "en": "Xikeng",
+        "distanceM": 230,
+        "lines": [
+          "110",
+          "199",
+          "223",
+          "285",
+          "297",
+          "862"
+        ]
+      },
+      {
+        "zh": "濂泉路(益民服装城)总站",
+        "en": "",
+        "distanceM": 230,
+        "lines": []
+      }
+    ]
+  }
+}

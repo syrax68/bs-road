@@ -1,0 +1,9 @@
+# Produits par les outils, jamais versionnés
+/dist/
+/app/assets/maps/*.pmtiles
+/app/assets/maps/*.mbtiles
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.vscode/

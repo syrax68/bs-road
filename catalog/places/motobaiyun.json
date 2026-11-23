@@ -1,0 +1,100 @@
+{
+  "id": "motobaiyun",
+  "zh": "新白云摩配市场",
+  "name": "Xin Baiyun Mopei",
+  "city": "gz",
+  "zone": "zengcha",
+  "area": "Luochongwei, Baiyun",
+  "categories": [
+    "moto"
+  ],
+  "amapQuery": "广州 白云摩配国际产业园",
+  "address": "322 Zengcha Road, Baiyun",
+  "addressZh": "广州市白云区增槎路322号 白云摩配国际产业园",
+  "access": "Bus jusqu'à l'arrêt Songbei, sur Zengcha Lu. La station Songzhou de la ligne 13, à 400 m environ, est annoncée pour fin 2026 : à confirmer avant le départ.",
+  "hours": "Non trouvé. Compter 9h à 18h, à vérifier.",
+  "sells": "Le grand marché chinois de la pièce moto, ouvert en 2024 pour remplacer les anciens marchés Baiyun, Songnan et Fuxing. Environ 80 000 m² : pièces de moteur, freinage, électricité, pneus, carénages, pièces de personnalisation, deux-roues électriques.",
+  "moq": "Non trouvé. Marché de gros : demande le minimum référence par référence.",
+  "tips": [
+    "Les adresses « 316 » et « 318 Zengcha Road » qu'on trouve encore en ligne sont celles des anciens marchés, démolis en 2024. Ne t'y fie pas.",
+    "Viens avec la liste des modèles qui roulent chez toi (marque, cylindrée, année) et des photos des pièces : les vendeurs raisonnent par modèle, CG125 par exemple.",
+    "Beaucoup de pièces sont adaptables, pas d'origine. Une pièce vendue comme « Honda » ou « Yamaha » d'origine à bas prix est probablement une copie : fais écrire « adaptable » sur la facture.",
+    "Le marché est site pilote du régime d'export « 1039 », pensé pour les petits lots mélangés : demande à la boutique et à ton transitaire si ta commande peut en profiter."
+  ],
+  "sources": [
+    {
+      "title": "Mopei8, les quatre nouveaux marchés de pièces moto (2024)",
+      "url": "https://www.mopei8.com/news/show-5.html"
+    },
+    {
+      "title": "Sohu, déménagement des marchés moto de Baiyun (2025)",
+      "url": "https://m.sohu.com/a/893460076_161794/"
+    },
+    {
+      "title": "NetEase, le marché Xin Baiyun (2026)",
+      "url": "https://m.163.com/dy/article/KPKKO67A0534AAOK.html"
+    },
+    {
+      "title": "Moto188, guide 2025 des marchés moto de Guangzhou",
+      "url": "http://www.moto188.com/news/show-41036.html"
+    },
+    {
+      "title": "21 Jingji, ligne 13 du métro annoncée pour fin 2026",
+      "url": "https://m.21jingji.com/article/20260727/herald/482af027f40158987df80b1798b83e6f.html"
+    }
+  ],
+  "lat": 23.16094,
+  "lng": 113.21806,
+  "approx": "placé sur l'arrêt de bus Songbei, Zengcha Lu ; l'entrée est au n° 322",
+  "added": "2026-11-22",
+  "transit": {
+    "metro": null,
+    "bus": [
+      {
+        "zh": "松北",
+        "en": "Songbei",
+        "distanceM": 70,
+        "lines": [
+          "198",
+          "259",
+          "521",
+          "527",
+          "731",
+          "830",
+          "B3",
+          "夜3",
+          "夜19",
+          "夜76",
+          "广424"
+        ]
+      },
+      {
+        "zh": "罗冲围总站",
+        "en": "Luochongwei Bus Terminal",
+        "distanceM": 260,
+        "lines": [
+          "B3",
+          "夜19"
+        ]
+      },
+      {
+        "zh": "松南街口",
+        "en": "Songnanjie Entrance",
+        "distanceM": 400,
+        "lines": [
+          "198",
+          "259",
+          "521",
+          "527",
+          "731",
+          "830",
+          "B3",
+          "夜3",
+          "夜19",
+          "夜76",
+          "广424"
+        ]
+      }
+    ]
+  }
+}

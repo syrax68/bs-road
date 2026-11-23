@@ -1,0 +1,110 @@
+{
+  "id": "dashatou",
+  "zh": "盛贤大沙头旧货市场",
+  "name": "Dashatou",
+  "alt": "Shengxian, occasion",
+  "city": "gz",
+  "zone": "dashatou",
+  "area": "Dashatou, Yuexiu",
+  "categories": [
+    "gadgets",
+    "pc"
+  ],
+  "amapQuery": "广州 盛贤大沙头旧货市场",
+  "address": "Lvyin Lu, Dashatou, Yuexiu",
+  "addressZh": "广州市越秀区绿荫路 盛贤大沙头旧货市场",
+  "access": "Métro Donghu (ligne 6), sortie B2.",
+  "hours": "Environ 10h à 18h. Les sources donnent 9h à 18h ou 10h à 18h30.",
+  "sells": "Le marché d'occasion le plus connu de Guangzhou : téléphones, ordinateurs portables, appareils photo et objectifs, électroménager.",
+  "moq": "À l'unité ou par lot.",
+  "tips": [
+    "C'est de l'occasion : teste chaque appareil, la batterie et l'écran, et vérifie que le téléphone n'est pas verrouillé.",
+    "Les prix sont parmi les plus bas de la ville et se négocient."
+  ],
+  "sources": [
+    {
+      "title": "Ville de Guangzhou, marchés spécialisés",
+      "url": "https://gz.gov.cn/guangzhouinternational/home/citynews/content/post_8638270.html"
+    },
+    {
+      "title": "OwlSourcing, marchés d'électronique de Guangzhou",
+      "url": "https://owlsourcing.com/?p=9041"
+    },
+    {
+      "title": "Leeline Sourcing, marchés d'électronique de Guangzhou",
+      "url": "https://leelinesourcing.com/guangzhou-electronics-market/"
+    },
+    {
+      "title": "eChinacities, marchés d'électronique de Guangzhou",
+      "url": "https://www.echinacities.com/guangzhou/city-guide/iWant-Hot-Deals-on-New-Gadgets-at-Guangzhous-Electronic-Markets"
+    }
+  ],
+  "lat": 23.11918,
+  "lng": 113.27972,
+  "transit": {
+    "metro": {
+      "zh": "东湖",
+      "en": "Donghu",
+      "exit": "B2",
+      "distanceM": 340,
+      "lines": [
+        "6",
+        "10"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "星之光电器城",
+        "en": "Starlight Electrical Appliance Market",
+        "distanceM": 60,
+        "lines": [
+          "35",
+          "101",
+          "104",
+          "211",
+          "221",
+          "546",
+          "864",
+          "夜4"
+        ]
+      },
+      {
+        "zh": "江湾桥脚",
+        "en": "Jiangwan Bridge Bottom",
+        "distanceM": 190,
+        "lines": [
+          "7",
+          "16",
+          "24",
+          "36",
+          "59",
+          "80",
+          "91",
+          "93",
+          "125",
+          "129",
+          "182",
+          "184",
+          "194",
+          "222",
+          "247",
+          "264",
+          "285",
+          "299",
+          "B5",
+          "夜12",
+          "广12",
+          "夜16"
+        ]
+      },
+      {
+        "zh": "东华南路江湾桥脚总站",
+        "en": "Donghua Nan Lu(Jiangwan Bridge) Bus Treminal",
+        "distanceM": 220,
+        "lines": [
+          "54"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "id": "seg",
+  "zh": "赛格电子市场",
+  "name": "SEG Electronics Market",
+  "city": "other",
+  "cityName": "Shenzhen",
+  "group": "sz",
+  "area": "Huaqiangbei, Shenzhen",
+  "categories": [
+    "pc",
+    "gadgets"
+  ],
+  "amapQuery": "深圳 赛格电子市场 华强北路1002号",
+  "address": "SEG Plaza, 1002 Huaqiang Bei Lu, étages 1 à 10",
+  "addressZh": "深圳市福田区华强北路1002号 赛格广场",
+  "access": "Depuis Guangzhou Est ou Sud : 29 à 45 min de train rapide. Sur place, métro Huaqiangbei (lignes 2 et 7).",
+  "hours": "9h30 à 18h30 en général.",
+  "sells": "Le premier marché d'électronique de Huaqiangbei : plus de 3 000 stands sur dix étages. Composants et pièces d'ordinateur, disques durs, portables, puces et cartes électroniques. On peut y faire monter un PC sur mesure.",
+  "moq": "Variable selon la pièce. Confirme la référence exacte, le stock et le minimum.",
+  "tips": [
+    "Pour les composants PC en volume, c'est le meilleur endroit de la liste.",
+    "Compare beaucoup de stands et teste les pièces, surtout les puces et composants.",
+    "Vérifie les certifications avant d'importer de l'électronique."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés SEG de Shenzhen",
+      "url": "https://jingsourcing.com/b-shenzhen-seg-market/"
+    },
+    {
+      "title": "China Importal, guide de Shenzhen",
+      "url": "https://www.chinaimportal.com/?p=3725"
+    },
+    {
+      "title": "Cities Insider, électronique à Guangzhou 2026",
+      "url": "https://citiesinsider.com/country/china/guangzhou/electronics-and-gadgets/en"
+    }
+  ],
+  "lat": 22.54395,
+  "lng": 114.0822,
+  "transit": {
+    "metro": {
+      "zh": "华强北",
+      "en": "Huaqiang North",
+      "exit": "D1",
+      "distanceM": 130,
+      "lines": [
+        "2",
+        "7",
+        "8"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "赛格广场",
+        "en": "SEG Plaza",
+        "distanceM": 70,
+        "lines": [
+          "14",
+          "M191",
+          "B930"
+        ]
+      },
+      {
+        "zh": "华强路地铁站",
+        "en": "Huaqiang Road Metro Station",
+        "distanceM": 250,
+        "lines": [
+          "13"
+        ]
+      },
+      {
+        "zh": "华强南地铁站",
+        "en": "Huaqiang South Metro Station",
+        "distanceM": 260,
+        "lines": [
+          "13",
+          "23",
+          "B930"
+        ]
+      }
+    ]
+  }
+}

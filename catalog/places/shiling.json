@@ -1,0 +1,38 @@
+{
+  "id": "shiling",
+  "zh": "狮岭国际皮革城",
+  "name": "Shiling",
+  "city": "other",
+  "cityName": "Guangzhou, district de Huadu",
+  "group": "near",
+  "area": "Huadu, nord de Guangzhou",
+  "categories": [
+    "sacs"
+  ],
+  "amapQuery": "广州 花都 狮岭国际皮革城",
+  "address": "Shiling, district de Huadu",
+  "addressZh": "广州市花都区狮岭镇",
+  "access": "Hors du centre, au nord de Guangzhou. Compter une heure de route environ (estimation, à vérifier dans Amap).",
+  "hours": "Non trouvé.",
+  "sells": "La capitale chinoise de la maroquinerie : plus de 2 000 boutiques, des matières (similicuir, PU, quincaillerie) et les usines de sacs.",
+  "moq": "Volumes d'usine.",
+  "tips": [
+    "Utile pour remonter à la source une fois tes modèles choisis, pas pour une première visite."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés du cuir à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-leather-market/"
+    },
+    {
+      "title": "WorldFirst, sacs et bagages",
+      "url": "https://sourcing.worldfirst.com/categories/bags-luggage"
+    }
+  ],
+  "lat": 23.45331,
+  "lng": 113.16656,
+  "transit": {
+    "metro": null,
+    "bus": []
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "liwan",
+  "zh": "荔湾广场",
+  "name": "Liwan Plaza",
+  "city": "gz",
+  "zone": "changshou",
+  "area": "Changshou Lu, Guangzhou",
+  "categories": [
+    "bijoux"
+  ],
+  "amapQuery": "广州 荔湾广场",
+  "address": "Liwan, Guangzhou",
+  "access": "Métro Changshou Lu (ligne 1) d'après mes repères. À confirmer dans Amap.",
+  "hours": "9h à 18h. Les boutiques ouvrent tard : arrive vers 11h.",
+  "sells": "Cristaux, pierres, perles, jade, bijoux et composants en argent. Sous-sol : cristaux abordables et bijoux finis.",
+  "moq": "Sous-sol : 3 à 5 pièces par modèle. Composants en argent : 3 000 ¥ minimum, vendus au poids.",
+  "tips": [
+    "Vérifie l'authenticité des pierres et de l'argent."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de bijoux à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-jewelry-market/"
+    }
+  ],
+  "lat": 23.11917,
+  "lng": 113.24303,
+  "transit": {
+    "metro": {
+      "zh": "华林寺",
+      "en": "Hualinsi Buddhist Temple",
+      "exit": "E",
+      "distanceM": 160,
+      "lines": [
+        "8"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "康王路(上下九)总站",
+        "en": "Kangwang Road (Shangxiajiu Pedestrian Street) Bus Terminal",
+        "distanceM": 100,
+        "lines": [
+          "夜99",
+          "广205"
+        ]
+      },
+      {
+        "zh": "德星路(上下九步行街)总站",
+        "en": "Dexing Road(Shangxiajiu Pedestrian Street) Bus Terminal",
+        "distanceM": 130,
+        "lines": [
+          "17",
+          "商务专线4"
+        ]
+      },
+      {
+        "zh": "华林寺",
+        "en": "Hualin Temple",
+        "distanceM": 230,
+        "lines": [
+          "17",
+          "114",
+          "226",
+          "288",
+          "297",
+          "521",
+          "552",
+          "旅游2",
+          "夜3",
+          "夜99",
+          "广205"
+        ]
+      }
+    ]
+  }
+}

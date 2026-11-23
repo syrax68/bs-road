@@ -1,0 +1,35 @@
+{
+  "id": "baigou",
+  "zh": "白沟箱包交易城",
+  "name": "Baigou",
+  "city": "other",
+  "cityName": "Baoding, Hebei",
+  "group": "far",
+  "area": "Hebei, nord de la Chine",
+  "categories": [
+    "sacs"
+  ],
+  "amapQuery": "河北 白沟箱包交易城",
+  "address": "236 Fuqiang Road, Gaobeidian, Baoding",
+  "addressZh": "河北省保定市高碑店市富强路236号",
+  "access": "Très loin de Guangzhou, dans le nord de la Chine. Avion obligatoire.",
+  "hours": "Non trouvé.",
+  "sells": "Sacs et valises d'entrée et de milieu de gamme. Baigou vise le prix le plus bas à qualité égale.",
+  "moq": "Pensé pour le volume.",
+  "tips": [
+    "À envisager seulement pour de gros volumes de sacs simples. Pour un premier voyage, Guangzhou suffit."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de gros en Chine",
+      "url": "https://jingsourcing.com/b-China-wholesale-market/"
+    }
+  ],
+  "lat": 39.14666,
+  "lng": 116.05134,
+  "approx": "placé sur le centre de sacs Hedao, à Baigou",
+  "transit": {
+    "metro": null,
+    "bus": []
+  }
+}

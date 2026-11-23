@@ -1,0 +1,111 @@
+{
+  "id": "haiyin",
+  "zh": "海印电器城",
+  "name": "Haiyin",
+  "alt": "Highsun",
+  "city": "gz",
+  "zone": "dashatou",
+  "area": "Dashatou, Yuexiu",
+  "categories": [
+    "gadgets",
+    "pc"
+  ],
+  "amapQuery": "广州 海印电器总汇 大沙头",
+  "address": "Dashatou Lu, Yuexiu",
+  "access": "Métro Donghu (ligne 6), sortie B2. Tout près du marché d'occasion.",
+  "hours": "Non trouvé avec certitude.",
+  "sells": "Le grand marché d'électronique neuve de Dashatou : téléphones et accessoires, produits informatiques, audio et amplis, électroménager.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "À faire dans la même visite que le marché d'occasion Shengxian."
+  ],
+  "sources": [
+    {
+      "title": "Leeline Sourcing, marchés d'électronique de Guangzhou",
+      "url": "https://leelinesourcing.com/guangzhou-electronics-market/"
+    },
+    {
+      "title": "Asian Sourcing Group, marchés d'électronique",
+      "url": "https://asiansourcinggroup.com/?p=10460"
+    },
+    {
+      "title": "Ville de Guangzhou, marchés spécialisés",
+      "url": "https://gz.gov.cn/guangzhouinternational/home/citynews/content/post_8638270.html"
+    }
+  ],
+  "lat": 23.11743,
+  "lng": 113.27918,
+  "approx": "placé sur le centre Haiyin Square, à Dashatou",
+  "transit": {
+    "metro": {
+      "zh": "东湖",
+      "en": "Donghu",
+      "exit": "B2",
+      "distanceM": 390,
+      "lines": [
+        "6",
+        "10"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "大沙头游船码头",
+        "en": "Dashatou Cruise Terminal",
+        "distanceM": 140,
+        "lines": [
+          "35",
+          "36",
+          "80",
+          "89",
+          "125",
+          "128",
+          "131B",
+          "184",
+          "192",
+          "194",
+          "208",
+          "211",
+          "221",
+          "229",
+          "247",
+          "546",
+          "781",
+          "864",
+          "旅游2",
+          "夜4",
+          "夜12",
+          "广12",
+          "B21",
+          "夜31",
+          "千年古城线(逆时针环线)",
+          "千年古城线快线(逆时针环线)",
+          "城市新中轴线(广州塔西环线)"
+        ]
+      },
+      {
+        "zh": "大沙头总站",
+        "en": "Dashatou Bus Terminal",
+        "distanceM": 180,
+        "lines": [
+          "7",
+          "89"
+        ]
+      },
+      {
+        "zh": "星之光电器城",
+        "en": "Starlight Electrical Appliance Market",
+        "distanceM": 220,
+        "lines": [
+          "35",
+          "101",
+          "104",
+          "211",
+          "221",
+          "546",
+          "864",
+          "夜4"
+        ]
+      }
+    ]
+  }
+}

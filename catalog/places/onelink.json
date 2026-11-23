@@ -1,0 +1,95 @@
+{
+  "id": "onelink",
+  "zh": "万菱广场",
+  "name": "Onelink Plaza",
+  "alt": "Wanling",
+  "city": "gz",
+  "zone": "haizhu",
+  "area": "Place Haizhu, Guangzhou",
+  "categories": [
+    "jouets",
+    "gadgets",
+    "bijoux"
+  ],
+  "amapQuery": "广州 万菱广场",
+  "address": "39 Jiefang South Road, Yuexiu",
+  "addressZh": "广州市越秀区解放南路39号",
+  "access": "Métro Haizhu Square (lignes 2 et 6), sortie B2, 5 min à pied.",
+  "hours": "9h à 19h, tous les jours.",
+  "sells": "Dix étages de jouets, cadeaux, décoration et petits articles. Gadgets et accessoires de téléphone aux 7e et 8e étages, peluches et cadeaux au sous-sol.",
+  "moq": "Variable. Certains stands ne font que du gros, d'autres vendent aussi à l'unité.",
+  "tips": [
+    "Le même produit peut être annoncé du simple au double d'une boutique à l'autre : compare toujours.",
+    "Aux 7e et 8e, des vendeurs acceptent le marquage à ton logo.",
+    "Alipay fonctionne avec une carte bancaire internationale."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, OneLink Plaza",
+      "url": "https://jingsourcing.com/b-guangzhou-onelink-plaza/"
+    },
+    {
+      "title": "Travel of China, OneLink Plaza",
+      "url": "https://www.travelofchina.com/onelink-plaza-guangzhou/"
+    }
+  ],
+  "lat": 23.11735,
+  "lng": 113.25715,
+  "transit": {
+    "metro": {
+      "zh": "海珠广场",
+      "en": "Haizhu Square",
+      "exit": "B2",
+      "distanceM": 260,
+      "lines": [
+        "2",
+        "6"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "一德东",
+        "en": "Yide East",
+        "distanceM": 70,
+        "lines": [
+          "4",
+          "8",
+          "823",
+          "夜6",
+          "夜16",
+          "夜33"
+        ]
+      },
+      {
+        "zh": "解放南路(沿江路口)",
+        "en": "Jiefang South Road(Yanjiang Road Entrance)",
+        "distanceM": 180,
+        "lines": [
+          "64",
+          "82",
+          "广281"
+        ]
+      },
+      {
+        "zh": "海珠广场(一德东)",
+        "en": "Haizhu Square(Yide East)",
+        "distanceM": 200,
+        "lines": [
+          "8",
+          "14",
+          "29",
+          "82",
+          "88",
+          "180",
+          "186",
+          "253",
+          "823",
+          "夜6",
+          "夜22",
+          "夜30",
+          "夜33"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+# Analyse, tests et APK de contrôle de l'app à chaque pull request.
+name: app-ci
+
+on:
+  pull_request:
+    paths: ["app/**", "catalog/**", ".github/workflows/app-ci.yml"]
+  push:
+    branches: [main]
+    paths: ["app/**", "catalog/**", ".github/workflows/app-ci.yml"]
+
+env:
+  FLUTTER_VERSION: "3.50.1"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - name: Code généré à jour (Drift)
+        run: |
+          dart run build_runner build --delete-conflicting-outputs
+          git diff --exit-code -- lib
+      - name: Format
+        run: dart format --output=none --set-exit-if-changed lib test tool
+      - run: flutter analyze
+      - run: flutter test
+
+  apk:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r tools/requirements.txt
+      - name: Cartes embarquées
+        run: python3 tools/extract_maps.py --only chine guangzhou --mbtiles --app-assets
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - name: APK
+        working-directory: app
+        run: |
+          flutter pub get
+          flutter build apk --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bs-road-apk
+          path: app/build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 14

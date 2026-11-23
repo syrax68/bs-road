@@ -1,0 +1,77 @@
+{
+  "id": "hongmian",
+  "zh": "红棉国际时装城",
+  "name": "Hongmian",
+  "alt": "Kapok International Fashion City",
+  "city": "gz",
+  "zone": "gare",
+  "area": "Gare de Guangzhou",
+  "categories": [
+    "vetements",
+    "bijoux",
+    "sacs"
+  ],
+  "amapQuery": "广州 红棉国际时装城",
+  "address": "En face de Baima, quartier de la gare",
+  "access": "Métro Guangzhou Railway Station (lignes 2 et 5).",
+  "hours": "Non trouvé.",
+  "sells": "Mode et accessoires dans une ambiance de centre commercial : bijoux, chaussures, chapeaux, sacs.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "À voir juste après Baima, c'est de l'autre côté de la rue."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de vêtements à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-clothing-market/"
+    }
+  ],
+  "lat": 23.14985,
+  "lng": 113.24995,
+  "transit": {
+    "metro": {
+      "zh": "广州火车站",
+      "en": "Guangzhou Railway Station",
+      "exit": "D4",
+      "distanceM": 50,
+      "lines": [
+        "2",
+        "5"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "白马服装城(站前路)站",
+        "en": "Baima Cloth City(Zhanqian Road)",
+        "distanceM": 60,
+        "lines": [
+          "301A",
+          "商务专线3"
+        ]
+      },
+      {
+        "zh": "站南路站",
+        "en": "Zhannan Lu",
+        "distanceM": 250,
+        "lines": [
+          "38",
+          "290",
+          "301A",
+          "518",
+          "530",
+          "商务专线3"
+        ]
+      },
+      {
+        "zh": "站南路总站",
+        "en": "Zhannan Lu Bus Terminal",
+        "distanceM": 260,
+        "lines": [
+          "29",
+          "552",
+          "广260"
+        ]
+      }
+    ]
+  }
+}

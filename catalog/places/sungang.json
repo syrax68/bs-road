@@ -1,0 +1,61 @@
+{
+  "id": "sungang",
+  "zh": "笋岗文具玩具礼品城",
+  "name": "Sungang",
+  "city": "other",
+  "cityName": "Shenzhen",
+  "group": "sz",
+  "area": "Sungang, Luohu, Shenzhen",
+  "categories": [
+    "jouets"
+  ],
+  "amapQuery": "深圳 笋岗文具玩具礼品城",
+  "address": "Meiyuan Lu, Sungang, Luohu",
+  "addressZh": "深圳市罗湖区笋岗 梅园路",
+  "access": "Dans le quartier de Sungang, à Luohu. Station de métro à vérifier dans Amap.",
+  "hours": "Non trouvé.",
+  "sells": "Le marché de gros de Shenzhen pour la papeterie, les jouets et les cadeaux de fête.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "À côté du centre de vêtements Huahaida (华海达), qui vend aussi chaussures et sacs."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de gros de Shenzhen",
+      "url": "https://jingsourcing.com/b-wholesale-markets-in-shenzhen/"
+    }
+  ],
+  "lat": 22.56629,
+  "lng": 114.11305,
+  "approx": "placé sur la rue Meiyuan Lu, à Sungang",
+  "transit": {
+    "metro": {
+      "zh": "洪湖",
+      "en": "Honghu",
+      "exit": "A",
+      "distanceM": 420,
+      "lines": [
+        "7"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "笋岗火车站",
+        "en": "Sun'gang Railway Station",
+        "distanceM": 80,
+        "lines": [
+          "61"
+        ]
+      },
+      {
+        "zh": "田贝新村",
+        "en": "Tianbei Xincun",
+        "distanceM": 290,
+        "lines": [
+          "1",
+          "M559"
+        ]
+      }
+    ]
+  }
+}

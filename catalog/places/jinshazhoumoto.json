@@ -1,0 +1,108 @@
+{
+  "id": "jinshazhoumoto",
+  "zh": "金沙洲白云·福星摩配展贸中心",
+  "name": "Jinshazhou Fuxing Mopei",
+  "city": "gz",
+  "zone": "zengcha",
+  "area": "Jinshazhou, Baiyun",
+  "categories": [
+    "moto"
+  ],
+  "amapQuery": "广州 金沙洲 福星摩配",
+  "address": "Huanzhou 3rd Road, Jinshazhou, Baiyun (numéro non trouvé)",
+  "addressZh": "广州市白云区金沙洲环洲三路 白云·福星摩配展贸中心",
+  "access": "Métro Hengsha (ligne 6), puis à pied sur Huanzhou San Lu. C'est de l'autre côté de la rivière par rapport à Zengcha Lu : compte un court trajet en taxi entre les deux.",
+  "hours": "Non trouvé.",
+  "sells": "Le marché qui prolonge l'ancien Fuxing, connu pour les accessoires et la personnalisation : rétroviseurs, coffres, poignées, éclairage, habillage. Un second site voisin, 金沙洲国际摩配采购中心, occupe un bâtiment de cinq étages.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "Ouvert en 2024 et encore en cours d'installation à l'époque : vérifie dans Amap qu'il est bien actif avant de traverser.",
+    "La position sur la carte est approximative : montre le nom chinois au chauffeur."
+  ],
+  "sources": [
+    {
+      "title": "Mopei8, les quatre nouveaux marchés de pièces moto (2024)",
+      "url": "https://www.mopei8.com/news/show-5.html"
+    },
+    {
+      "title": "Moto188, guide 2025 des marchés moto de Guangzhou",
+      "url": "http://www.moto188.com/news/show-41036.html"
+    },
+    {
+      "title": "Shunqi, annuaire des boutiques moto de Baiyun",
+      "url": "https://m.11467.com/guangzhou/qubaiyun/6104.htm"
+    }
+  ],
+  "lat": 23.16043,
+  "lng": 113.20334,
+  "approx": "placé sur la rue Huanzhou San Lu, à Jinshazhou",
+  "added": "2026-11-22",
+  "transit": {
+    "metro": {
+      "zh": "横沙",
+      "en": "Hengsha",
+      "exit": "C",
+      "distanceM": 200,
+      "lines": [
+        "6"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "金沙洲路",
+        "en": "Jinshazhou Lu",
+        "distanceM": 70,
+        "lines": [
+          "15",
+          "290",
+          "745",
+          "830",
+          "广12",
+          "夜16",
+          "广高峰快线30",
+          "广42",
+          "广夜91",
+          "广231",
+          "佛276",
+          "广276",
+          "广283",
+          "广283班",
+          "广424",
+          "广885"
+        ]
+      },
+      {
+        "zh": "城西花园",
+        "en": "Chengxi Garden",
+        "distanceM": 130,
+        "lines": [
+          "15",
+          "290",
+          "745",
+          "830",
+          "广夜91",
+          "广657",
+          "广885",
+          "广974"
+        ]
+      },
+      {
+        "zh": "地铁横沙站",
+        "en": "Hengsha Metro Station",
+        "distanceM": 260,
+        "lines": [
+          "429",
+          "广12",
+          "广高峰快线30",
+          "广夜91",
+          "广231",
+          "广276",
+          "广283",
+          "广657",
+          "广790",
+          "广974"
+        ]
+      }
+    ]
+  }
+}

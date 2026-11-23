@@ -1,0 +1,50 @@
+[
+  {
+    "id": "sacs",
+    "label": "Sacs"
+  },
+  {
+    "id": "chaussures",
+    "label": "Chaussures"
+  },
+  {
+    "id": "vetements",
+    "label": "Vêtements"
+  },
+  {
+    "id": "pc",
+    "label": "Composants PC"
+  },
+  {
+    "id": "gadgets",
+    "label": "Gadgets et électronique"
+  },
+  {
+    "id": "cartes",
+    "label": "Cartes à collectionner"
+  },
+  {
+    "id": "figurines",
+    "label": "Bandai et figurines"
+  },
+  {
+    "id": "jouets",
+    "label": "Jouets"
+  },
+  {
+    "id": "moto",
+    "label": "Pièces moto"
+  },
+  {
+    "id": "bijoux",
+    "label": "Bijoux et accessoires"
+  },
+  {
+    "id": "beaute",
+    "label": "Beauté et cheveux"
+  },
+  {
+    "id": "luminaires",
+    "label": "Luminaires"
+  }
+]

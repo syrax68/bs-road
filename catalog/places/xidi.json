@@ -1,0 +1,94 @@
+{
+  "id": "xidi",
+  "zh": "新亚洲国际电子数码城",
+  "name": "Xidi, New Asia",
+  "city": "gz",
+  "zone": "shisanhang",
+  "area": "Xidi Er Malu, Guangzhou",
+  "categories": [
+    "gadgets"
+  ],
+  "amapQuery": "广州 新亚洲国际电子数码城",
+  "address": "55 Xidi Er Malu, Liwan",
+  "addressZh": "广州市荔湾区西堤二马路55号",
+  "access": "Métro Culture Park (ligne 6), sortie B, 5 min à pied.",
+  "hours": "9h à 18h.",
+  "sells": "Gadgets électroniques, enceintes Bluetooth, écouteurs, coques, verres trempés, cartes mémoire et clés USB. Toute la rue est bordée de marchés d'électronique.",
+  "moq": "Verre trempé : une boîte de 20 à 25 pièces par modèle. Coques : 50 pièces. Un échantillon à l'unité peut être refusé ou coûter 3 à 5 fois le prix de gros.",
+  "tips": [
+    "Les vendeurs parlent anglais.",
+    "Les grandes boutiques ne vendent pas au détail.",
+    "Montre que tu connais tes références avant de demander le dernier prix."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés d'électronique à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-electornics-market"
+    },
+    {
+      "title": "OwlSourcing, marchés d'électronique de Guangzhou",
+      "url": "https://owlsourcing.com/?p=9041"
+    }
+  ],
+  "lat": 23.1113,
+  "lng": 113.24711,
+  "approx": "placé au milieu de la rue Xidi Er Malu",
+  "transit": {
+    "metro": {
+      "zh": "文化公园",
+      "en": "Cultural Park",
+      "exit": "B",
+      "distanceM": 240,
+      "lines": [
+        "6",
+        "8"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "西堤码头",
+        "en": "Xidi Ferry Pier",
+        "distanceM": 130,
+        "lines": [
+          "西关风情线(逆时针环线)"
+        ]
+      },
+      {
+        "zh": "文化公园总站",
+        "en": "",
+        "distanceM": 130,
+        "lines": [
+          "538"
+        ]
+      },
+      {
+        "zh": "南方大厦",
+        "en": "Southern Building",
+        "distanceM": 130,
+        "lines": [
+          "1",
+          "31",
+          "38",
+          "64",
+          "102",
+          "106",
+          "128",
+          "131A",
+          "186",
+          "208",
+          "209",
+          "217",
+          "552",
+          "556",
+          "夜1",
+          "旅游2",
+          "夜7",
+          "夜26",
+          "夜31",
+          "夜113",
+          "广281"
+        ]
+      }
+    ]
+  }
+}

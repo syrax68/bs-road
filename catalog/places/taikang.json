@@ -1,0 +1,90 @@
+{
+  "id": "taikang",
+  "zh": "泰康饰品城",
+  "name": "Taikang",
+  "city": "gz",
+  "zone": "haizhu",
+  "area": "Place Haizhu, Guangzhou",
+  "categories": [
+    "bijoux"
+  ],
+  "amapQuery": "广州 泰康城广场",
+  "address": "Taikang Lu, Yuexiu",
+  "access": "Métro Haizhu Square (lignes 2 et 6), sortie B1.",
+  "hours": "9h à 18h.",
+  "sells": "Bijoux fantaisie plaqués et en alliage, perles, accessoires acier pour homme au 4e. Au 1er : argent et plaqué or, chapeaux, sacs, lunettes de soleil.",
+  "moq": "Très bas : lot mixte d'environ 30 pièces au 1er étage, 10 pièces dans les étages.",
+  "tips": [
+    "Les prix baissent en montant dans les étages.",
+    "La plupart des stands se fournissent à Yiwu : pour un gros volume, Yiwu reste moins cher."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de bijoux à Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-jewelry-market/"
+    },
+    {
+      "title": "China Travel, shopping à Guangzhou",
+      "url": "https://www.chinatravel.com/guangzhou/shopping-in-guangzhou"
+    }
+  ],
+  "lat": 23.11967,
+  "lng": 113.26242,
+  "transit": {
+    "metro": {
+      "zh": "北京路",
+      "en": "Beijing Lu",
+      "exit": "A2",
+      "distanceM": 230,
+      "lines": [
+        "6"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "泰康路",
+        "en": "Taikang Lu",
+        "distanceM": 80,
+        "lines": [
+          "190",
+          "194",
+          "519",
+          "544",
+          "夜32"
+        ]
+      },
+      {
+        "zh": "珠光路",
+        "en": "Zhuguang Road",
+        "distanceM": 310,
+        "lines": [
+          "1",
+          "夜1"
+        ]
+      },
+      {
+        "zh": "海珠广场",
+        "en": "Haizhu Square",
+        "distanceM": 310,
+        "lines": [
+          "8",
+          "10",
+          "14",
+          "29",
+          "82",
+          "88",
+          "180",
+          "183",
+          "253",
+          "519",
+          "823",
+          "夜6",
+          "夜8",
+          "夜22",
+          "夜30",
+          "夜33"
+        ]
+      }
+    ]
+  }
+}

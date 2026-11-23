@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/syrax68/bs-road/catalog/schema/alert.schema.json",
+  "title": "Signalement sur un lieu",
+  "description": "Un fichier par lieu signalé, nommé <id du lieu>.json. Supprimer le fichier quand le signalement n'est plus vrai.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["place", "type", "text", "date"],
+  "properties": {
+    "place": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{1,39}$" },
+    "type": { "enum": ["ferme", "verifier", "info"], "description": "ferme : fermé, démoli ou déménagé. verifier : information douteuse. info : changement utile." },
+    "text": { "type": "string", "minLength": 1, "maxLength": 400 },
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "url"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "url": { "type": "string", "pattern": "^https?://" }
+      }
+    }
+  }
+}

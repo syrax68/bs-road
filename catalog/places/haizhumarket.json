@@ -1,0 +1,87 @@
+{
+  "id": "haizhumarket",
+  "zh": "海珠市场",
+  "name": "Haizhu Market",
+  "city": "gz",
+  "zone": "haizhu",
+  "area": "Haizhu Nan Lu, Yuexiu",
+  "categories": [
+    "figurines",
+    "jouets"
+  ],
+  "amapQuery": "广州 海珠南路126号 海珠市场",
+  "address": "126 Haizhu Nan Lu",
+  "addressZh": "广州市越秀区海珠南路126号",
+  "access": "Métro Yide Lu, sortie B. Juste en face de Yide Toy Plaza.",
+  "hours": "Non trouvé.",
+  "sells": "Le marché du quartier pour les jouets tendance et les figurines de manga.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "One Piece, Bandai et autres licences : sur un marché de gros, une figurine de marque à très bas prix est le plus souvent une copie. Une copie est illégale à importer et se revend mal. Demande le produit officiel (正版) et compare avec les prix de la Gundam Base."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de jouets de Guangzhou",
+      "url": "https://jingsourcing.com/b-guangzhou-toys-market/"
+    }
+  ],
+  "lat": 23.11428,
+  "lng": 113.25213,
+  "approx": "placé sur la rue Haizhu Nan Lu",
+  "transit": {
+    "metro": {
+      "zh": "一德路",
+      "en": "Yide Lu",
+      "exit": "A",
+      "distanceM": 100,
+      "lines": [
+        "6"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "爱群大厦",
+        "en": "Oi Kwan Hotel",
+        "distanceM": 220,
+        "lines": [
+          "1",
+          "4",
+          "58",
+          "64",
+          "128",
+          "131A",
+          "131B",
+          "134",
+          "186",
+          "208",
+          "夜1",
+          "旅游2",
+          "夜16",
+          "夜31",
+          "广281"
+        ]
+      },
+      {
+        "zh": "一德西",
+        "en": "Yide West",
+        "distanceM": 250,
+        "lines": [
+          "4",
+          "8",
+          "823",
+          "夜6",
+          "夜16",
+          "夜33"
+        ]
+      },
+      {
+        "zh": "海珠南路",
+        "en": "Haizhu Nan Lu",
+        "distanceM": 300,
+        "lines": [
+          "58"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "guihuagang",
+  "zh": "桂花岗皮具市场",
+  "name": "Guihuagang",
+  "city": "gz",
+  "zone": "sanyuanli",
+  "area": "Sanyuanli, Guangzhou",
+  "categories": [
+    "sacs"
+  ],
+  "amapQuery": "广州 桂花岗皮具箱包批发市场",
+  "address": "1107 Jiefang North Road, Yuexiu",
+  "addressZh": "广州市越秀区解放北路1107号",
+  "access": "Métro Sanyuanli (ligne 2), ou bus jusqu'à l'arrêt Guihuagang.",
+  "hours": "Non trouvé. Compter 9h à 18h comme les marchés voisins, à vérifier.",
+  "sells": "Sacs et bagages de milieu et haut de gamme : sacs femme, cartables, sacs de voyage, sacs pour ordinateur, valises. Le quartier regroupe plus d'une vingtaine de marchés de sacs.",
+  "moq": "Non trouvé.",
+  "tips": [
+    "À enchaîner avec Baiyun World Leather, sur la même avenue."
+  ],
+  "sources": [
+    {
+      "title": "JingSourcing, marchés de gros en Chine",
+      "url": "https://jingsourcing.com/b-China-wholesale-market/"
+    },
+    {
+      "title": "TravelChinaGuide, marchés de gros de Guangzhou",
+      "url": "https://www.travelchinaguide.com/cityguides/guangdong/guangzhou/wholesale-markets.htm"
+    }
+  ],
+  "lat": 23.153,
+  "lng": 113.258,
+  "approx": "placé sur Jiefang Bei Lu, dans le quartier Guihuagang",
+  "transit": {
+    "metro": {
+      "zh": "梓元岗",
+      "en": "Ziyuangang",
+      "exit": "A",
+      "distanceM": 310,
+      "lines": [
+        "11"
+      ]
+    },
+    "bus": [
+      {
+        "zh": "桂花岗",
+        "en": "Guihuagang",
+        "distanceM": 150,
+        "lines": [
+          "24",
+          "34",
+          "38",
+          "58",
+          "58A",
+          "124",
+          "182",
+          "185",
+          "186",
+          "244",
+          "244A",
+          "254",
+          "265",
+          "273",
+          "280",
+          "284",
+          "807",
+          "807A",
+          "886",
+          "商务专线3",
+          "夜22",
+          "夜40",
+          "夜121"
+        ]
+      },
+      {
+        "zh": "梓元岗路口站",
+        "en": "Ziyuangang Lu Entrance",
+        "distanceM": 220,
+        "lines": []
+      },
+      {
+        "zh": "广州大学(桂花岗校区)总站",
+        "en": "Guangzhou University(Guihuagang Campus) Bus Terminal",
+        "distanceM": 290,
+        "lines": [
+          "481路(往广园客运站方向)",
+          "481路(往广州大学方向)"
+        ]
+      }
+    ]
+  }
+}
