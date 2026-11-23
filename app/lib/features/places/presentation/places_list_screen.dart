@@ -1,7 +1,9 @@
 import 'package:bs_road/app/providers.dart';
-import 'package:bs_road/features/places/domain/place.dart';
+import 'package:bs_road/core/catalog/place.dart';
+import 'package:bs_road/core/geo/geo.dart';
 import 'package:bs_road/features/places/domain/place_filter.dart';
 import 'package:bs_road/features/places/presentation/places_providers.dart';
+import 'package:bs_road/features/places/presentation/widgets/origin_sheet.dart';
 import 'package:bs_road/features/places/presentation/widgets/place_widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -15,16 +17,7 @@ class PlacesListScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ready = ref.watch(catalogReadyProvider);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BS Road'),
-        actions: [
-          IconButton(
-            tooltip: 'Essai carte',
-            icon: const Icon(Icons.map_outlined),
-            onPressed: () => context.go('/essai-carte'),
-          ),
-        ],
-      ),
+      appBar: AppBar(title: const Text('BS Road')),
       body: ready.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => _Problem(
@@ -52,6 +45,7 @@ class _PlacesBody extends ConsumerWidget {
           SliverToBoxAdapter(
             child: _CountLine(shown: v.shown, total: v.total),
           ),
+          SliverToBoxAdapter(child: _OriginBar(hasOrigin: v.origin != null)),
           if (v.sections.isEmpty) const SliverFillRemaining(hasScrollBody: false, child: _Empty()),
           for (final s in v.sections) ...[
             SliverToBoxAdapter(child: _SectionHeader(section: s)),
@@ -60,7 +54,11 @@ class _PlacesBody extends ConsumerWidget {
               sliver: SliverList.separated(
                 itemCount: s.places.length,
                 separatorBuilder: (_, _) => const SizedBox(height: 6),
-                itemBuilder: (context, i) => PlaceCard(place: s.places[i], state: v.states[s.places[i].id]),
+                itemBuilder: (context, i) => PlaceCard(
+                  place: s.places[i],
+                  state: v.states[s.places[i].id],
+                  distance: v.distances[s.places[i].id],
+                ),
               ),
             ),
           ],
@@ -177,6 +175,30 @@ class _CategoryChip extends StatelessWidget {
   );
 }
 
+/// Point de départ et tri par distance.
+class _OriginBar extends ConsumerWidget {
+  const _OriginBar({required this.hasOrigin});
+
+  final bool hasOrigin;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final nearFirst = ref.watch(placeFilterProvider.select((f) => f.nearFirst));
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: OriginLine(
+        trailing: hasOrigin
+            ? FilterChip(
+                label: const Text('Plus proches'),
+                selected: nearFirst,
+                onSelected: (v) => ref.read(placeFilterProvider.notifier).setNearFirst(value: v),
+              )
+            : null,
+      ),
+    );
+  }
+}
+
 class _CountLine extends StatelessWidget {
   const _CountLine({required this.shown, required this.total});
 
@@ -245,10 +267,13 @@ class _SectionHeader extends StatelessWidget {
 
 /// Carte d'un lieu dans la liste : le nom chinois en grand, comme une enseigne.
 class PlaceCard extends ConsumerWidget {
-  const PlaceCard({required this.place, this.state, super.key});
+  const PlaceCard({required this.place, this.state, this.distance, super.key});
 
   final Place place;
   final PlaceState? state;
+
+  /// Distance au point de départ en mètres, si on en a un.
+  final double? distance;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -259,7 +284,7 @@ class PlaceCard extends ConsumerWidget {
     return Card(
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: () => context.go('/lieu/${place.id}'),
+        onTap: () => context.push('/lieu/${place.id}'),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(14, 12, 10, 12),
           child: Row(
@@ -285,6 +310,7 @@ class PlaceCard extends ConsumerWidget {
                     const SizedBox(height: 2),
                     Text(
                       [
+                        if (distance != null) formatDistance(distance!),
                         if (place.region != Region.guangzhou && place.cityName != null) place.cityName!,
                         place.categoryIds.map((c) => labels[c] ?? c).join(' · '),
                       ].join(' — '),

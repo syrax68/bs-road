@@ -16,7 +16,9 @@ import '../../test/helpers.dart';
 Future<void> _loadFonts() async {
   final sans = FontLoader('Roboto');
   for (final f in ['Regular', 'Bold']) {
-    sans.addFont(Future.value(ByteData.sublistView(File('/usr/share/fonts/opentype/noto/NotoSansCJK-$f.ttc').readAsBytesSync())));
+    sans.addFont(
+      Future.value(ByteData.sublistView(File('/usr/share/fonts/opentype/noto/NotoSansCJK-$f.ttc').readAsBytesSync())),
+    );
   }
   await sans.load();
   final icons = FontLoader('MaterialIcons')
@@ -61,10 +63,7 @@ void main() {
     await tester.pumpWidget(
       RepaintBoundary(
         child: ProviderScope(
-          overrides: [
-            databaseProvider.overrideWithValue(db),
-            assetBundleProvider.overrideWithValue(FileAssetBundle()),
-          ],
+          overrides: [databaseProvider.overrideWithValue(db), assetBundleProvider.overrideWithValue(FileAssetBundle())],
           child: const BsRoadApp(),
         ),
       ),

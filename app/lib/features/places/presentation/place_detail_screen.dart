@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:bs_road/app/theme.dart';
+import 'package:bs_road/core/catalog/place.dart';
 import 'package:bs_road/core/geo/amap_links.dart';
 import 'package:bs_road/core/geo/geo.dart';
 import 'package:bs_road/core/links/open_link.dart';
-import 'package:bs_road/features/places/domain/place.dart';
+import 'package:bs_road/core/location/origin.dart';
 import 'package:bs_road/features/places/presentation/places_providers.dart';
+import 'package:bs_road/features/places/presentation/widgets/origin_sheet.dart';
 import 'package:bs_road/features/places/presentation/widgets/place_widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -84,7 +86,9 @@ class _PlaceDetail extends ConsumerWidget {
             ].join(' · '),
             style: TextStyle(color: scheme.onSurfaceVariant),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
+          _DistanceRow(place: place),
+          const SizedBox(height: 8),
           SegmentedButton<PlaceStatus>(
             showSelectedIcon: false,
             segments: const [
@@ -157,7 +161,7 @@ class _Plaque extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
-        onTap: () => context.go('/lieu/${place.id}/chauffeur'),
+        onTap: () => context.push('/lieu/${place.id}/chauffeur'),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(18, 14, 18, 18),
           child: Column(
@@ -410,16 +414,58 @@ class _NoteFieldState extends ConsumerState<_NoteField> {
 }
 
 /// Barre fixe du bas : itinéraire Amap et copie du nom chinois.
-class _ActionBar extends StatelessWidget {
+/// Distance depuis le point de départ, et accès à la carte.
+class _DistanceRow extends ConsumerWidget {
+  const _DistanceRow({required this.place});
+
+  final Place place;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final origin = ref.watch(originProvider);
+    final d = origin == null ? null : distanceMeters(origin.point, place.location);
+    final scheme = Theme.of(context).colorScheme;
+    return Row(
+      children: [
+        Expanded(
+          child: TextButton.icon(
+            style: TextButton.styleFrom(padding: EdgeInsets.zero, alignment: Alignment.centerLeft),
+            icon: const Icon(Icons.straighten, size: 18),
+            onPressed: () => showOriginSheet(context),
+            label: Text(
+              d == null
+                  ? 'Indique d’où tu pars pour voir la distance'
+                  : d < 30
+                  ? 'Tu es sur place.'
+                  : 'À ${formatDistance(d)} de ${origin!.label}',
+              style: TextStyle(color: d == null ? scheme.onSurfaceVariant : null),
+            ),
+          ),
+        ),
+        IconButton(
+          tooltip: 'Voir sur la carte',
+          icon: const Icon(Icons.map_outlined),
+          onPressed: () => context.go('/carte?lieu=${place.id}'),
+        ),
+      ],
+    );
+  }
+}
+
+class _ActionBar extends ConsumerWidget {
   const _ActionBar({required this.place});
 
   final Place place;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Depuis le GPS, Amap part de sa propre position ; depuis l'hôtel ou un
+    // point posé, on lui donne le départ.
+    final origin = ref.watch(originProvider);
+    final from = origin == null || origin.source == OriginSource.gps ? null : origin;
     final uri = place.isApprox
         ? AmapLinks.search(place.amapQuery)
-        : AmapLinks.transitRoute(to: place.location, toName: place.zh);
+        : AmapLinks.transitRoute(to: place.location, toName: place.zh, from: from?.point, fromName: from?.label);
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),

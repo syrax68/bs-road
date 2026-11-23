@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io' show gzip;
 
+import 'package:bs_road/core/catalog/place.dart';
 import 'package:bs_road/core/geo/geo.dart';
-import 'package:bs_road/features/places/domain/place.dart';
 
 /// Version du format de paquet que cette version de l'app sait lire.
 /// Doit suivre SCHEMA_VERSION dans tools/catalog_lib.py.

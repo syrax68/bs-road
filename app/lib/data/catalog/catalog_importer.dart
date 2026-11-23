@@ -1,6 +1,6 @@
+import 'package:bs_road/core/catalog/place.dart';
 import 'package:bs_road/data/catalog/catalog_bundle.dart';
 import 'package:bs_road/data/db/app_database.dart';
-import 'package:bs_road/features/places/domain/place.dart';
 import 'package:drift/drift.dart';
 
 /// Résultat d'un import.

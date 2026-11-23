@@ -1,4 +1,5 @@
-import 'package:bs_road/features/places/domain/place.dart';
+import 'package:bs_road/core/catalog/place.dart';
+import 'package:bs_road/core/geo/geo.dart';
 import 'package:collection/collection.dart';
 
 /// Filtre « où » de la liste.
@@ -6,20 +7,35 @@ enum RegionFilter { all, guangzhou, shenzhen, elsewhere }
 
 /// Critères de la liste des lieux. Immuable : chaque changement crée un filtre.
 class PlaceFilter {
-  const PlaceFilter({this.query = '', this.categoryId, this.region = RegionFilter.all, this.onlyToVisit = false});
+  const PlaceFilter({
+    this.query = '',
+    this.categoryId,
+    this.region = RegionFilter.all,
+    this.onlyToVisit = false,
+    this.nearFirst = false,
+  });
 
   final String query;
   final String? categoryId;
   final RegionFilter region;
   final bool onlyToVisit;
 
-  PlaceFilter copyWith({String? query, String? Function()? categoryId, RegionFilter? region, bool? onlyToVisit}) =>
-      PlaceFilter(
-        query: query ?? this.query,
-        categoryId: categoryId != null ? categoryId() : this.categoryId,
-        region: region ?? this.region,
-        onlyToVisit: onlyToVisit ?? this.onlyToVisit,
-      );
+  /// Trier du plus proche au plus loin (quand un point de départ est connu).
+  final bool nearFirst;
+
+  PlaceFilter copyWith({
+    String? query,
+    String? Function()? categoryId,
+    RegionFilter? region,
+    bool? onlyToVisit,
+    bool? nearFirst,
+  }) => PlaceFilter(
+    query: query ?? this.query,
+    categoryId: categoryId != null ? categoryId() : this.categoryId,
+    region: region ?? this.region,
+    onlyToVisit: onlyToVisit ?? this.onlyToVisit,
+    nearFirst: nearFirst ?? this.nearFirst,
+  );
 
   bool get isEmpty => query.trim().isEmpty && categoryId == null && region == RegionFilter.all && !onlyToVisit;
 }
@@ -131,4 +147,19 @@ List<PlaceSection> groupPlaces(List<Place> places, List<Zone> zones) {
   add(Region.near, 'Autour de Guangzhou', 'Aller-retour dans la journée');
   add(Region.far, 'Plus loin', 'Train long ou avion');
   return sections;
+}
+
+/// Distance à vol d'oiseau de chaque lieu depuis [from], en mètres.
+Map<String, double> distancesFrom(GeoPoint from, Iterable<Place> places) => {
+  for (final p in places) p.id: distanceMeters(from, p.location),
+};
+
+/// Une seule section, du plus proche au plus loin. À égalité, l'ordre du catalogue.
+List<PlaceSection> nearestFirst(List<Place> places, Map<String, double> distances, {required String fromLabel}) {
+  if (places.isEmpty) return const [];
+  final sorted = [...places]
+    ..sort((a, b) => (distances[a.id] ?? double.infinity).compareTo(distances[b.id] ?? double.infinity));
+  return [
+    PlaceSection(key: 'near', title: 'Du plus proche au plus loin', subtitle: 'Depuis $fromLabel', places: sorted),
+  ];
 }

@@ -37,6 +37,7 @@ dependencies:
   flutter_map_vector_tiles: ^2.12.0
   flutter_map_vector_tiles_mbtiles: ^1.0.0
   flutter_riverpod: ^3.5.0
+  geolocator: ^14.1.2
   go_router: ^18.1.4
   intl: ^0.20.3
   latlong2: ^0.9.1

@@ -158,3 +158,15 @@ class PlaceStates extends Table {
   @override
   Set<Column> get primaryKey => {placeId};
 }
+
+/// Réglages de l'utilisateur, une valeur JSON par clé (point de départ,
+/// hypothèses de marge…). Ajoutée en v2.
+@DataClassName('SettingRow')
+class Settings extends Table {
+  TextColumn get key => text()();
+  TextColumn get value => text()();
+  DateTimeColumn get updatedAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {key};
+}

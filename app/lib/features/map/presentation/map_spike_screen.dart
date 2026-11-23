@@ -5,7 +5,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bs_road/features/places/domain/place.dart';
+import 'package:bs_road/core/catalog/place.dart';
 import 'package:bs_road/features/places/presentation/places_providers.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
